@@ -1,0 +1,108 @@
+.footer {
+  padding: 60px 0 30px;
+  background: linear-gradient(135deg, #FF7A6B 0%, #FF5A5A 50%, #E85D5D 100%);
+  color: #1a1a1a;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 4rem;
+  margin-bottom: 3rem;
+  align-items: start;
+}
+
+.brand h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.tedx {
+  color: #1a1a1a;
+}
+
+.miami {
+  color: #1a1a1a;
+}
+
+.brand p {
+  font-size: 0.85rem;
+  color: rgba(26, 26, 26, 0.8);
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.links a {
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.links a:hover {
+  color: #000;
+  font-weight: 600;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.socials a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(26, 26, 26, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  transition: all 0.3s;
+}
+
+.socials a:hover {
+  background: rgba(26, 26, 26, 0.3);
+}
+
+.credit {
+  border-top: 1px solid rgba(26, 26, 26, 0.15);
+  padding-top: 2rem;
+  text-align: right;
+}
+
+.credit p {
+  font-size: 0.85rem;
+  color: rgba(26, 26, 26, 0.7);
+}
+
+@media (max-width: 968px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .socials {
+    justify-content: flex-start;
+  }
+
+  .credit {
+    text-align: center;
+  }
+}

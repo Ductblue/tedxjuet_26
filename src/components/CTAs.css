@@ -1,0 +1,28 @@
+.ctas {
+  padding: 80px 0;
+}
+
+.cta-block {
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cta-block:first-child {
+  padding-top: 0;
+}
+
+.cta-block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.cta-question {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.cta-link {
+  display: inline-flex;
+}

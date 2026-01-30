@@ -1,0 +1,59 @@
+.talks {
+  padding: 80px 0;
+}
+
+.talks-header-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.talks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.talk-card {
+  background: var(--ted-card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.talk-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.talk-card-image {
+  aspect-ratio: 16 / 10;
+}
+
+.talk-card-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(94, 179, 214, 0.15) 0%, var(--ted-card-bg) 100%);
+}
+
+.talk-card-body {
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.talk-card-title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  line-height: 1.35;
+}
+
+.talk-card-speaker {
+  font-size: 0.875rem;
+  color: var(--ted-gray);
+  margin: 0;
+}
+
+.talks-footer-link {
+  display: inline-flex;
+}
