@@ -1,6 +1,6 @@
 .section {
-  padding: 50px 0;
-  background: #1a1a1a;
+  padding: 80px 0;
+  background: #000000;
 }
 
 .container {
@@ -13,13 +13,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
-.header h2 {
-  font-size: clamp(2rem, 5vw, 2.5rem);
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   color: var(--white);
+  margin: 0;
 }
 
 .seeAll {
@@ -29,11 +30,13 @@
   letter-spacing: 1.5px;
   transition: all 0.3s;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .seeAll span {
   display: inline-block;
-  margin-left: 8px;
   transition: transform 0.3s;
 }
 
@@ -43,16 +46,32 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 180px);
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 280px);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
 }
 
 .card {
+  cursor: pointer;
+  transition: all 0.4s ease;
   border-radius: 12px;
   overflow: hidden;
-  cursor: pointer;
-  transition: all 0.4s;
+  position: relative;
+  display: block;
 }
 
 .cardLarge {
@@ -60,105 +79,71 @@
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
 }
 
-.imageContainer {
+.imageWrapper {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: #2a2a2a;
 }
 
-.imageContainer img {
+.image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.7);
-  transition: all 0.4s;
+  transition: all 0.4s ease;
 }
 
-.card:hover .imageContainer img {
+.card:hover .image {
   transform: scale(1.05);
-  filter: brightness(0.5);
+  filter: brightness(0.6);
 }
 
 .stripes {
   position: absolute;
   top: 0;
   right: 0;
-  width: 120px;
-  height: 120px;
+  width: 200px;
+  height: 200px;
   display: flex;
-  gap: 10px;
-  transform: rotate(45deg) translate(30%, -30%);
+  gap: 15px;
+  transform: rotate(45deg) translate(40%, -60%);
   pointer-events: none;
+  z-index: 2;
 }
 
 .stripe {
-  width: 20px;
-  height: 200px;
-  background: rgba(235, 0, 40, 0.8);
-  opacity: 0;
-  transition: opacity 0.3s;
+  width: 30px;
+  height: 300px;
+  background: rgba(235, 0, 40, 0.85);
 }
 
-.card:hover .stripe {
-  opacity: 1;
-}
-
-.content {
+.overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 2rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 50%, transparent 100%);
+  z-index: 1;
 }
 
-.content h3 {
+.overlayTitle {
+  color: var(--white);
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--white);
-  margin-bottom: 0.5rem;
   line-height: 1.3;
+  margin: 0 0 0.5rem 0;
 }
 
-.content p {
-  font-size: 0.85rem;
+.overlaySpeaker {
   color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
   font-weight: 600;
+  margin: 0;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
-@media (max-width: 968px) {
-  .section {
-    padding: 80px 0;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-
-  .card,
-  .cardLarge {
-    grid-row: span 1;
-    height: 300px;
-  }
-
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-
-  .content h3 {
-    font-size: 1.25rem;
-  }
-
-  .content {
-    padding: 1.5rem;
-  }
+  letter-spacing: 1px;
 }

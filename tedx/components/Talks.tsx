@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import styles from './Talks.module.css'
 
 const talks = [
   { id: 1, title: 'Save Me', speaker: 'KĒVENS', videoId: 'J00PFV5CaIU', large: true },
@@ -16,10 +17,11 @@ export default function Talks() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section ref={ref} className="section" id="talks">
-      <div className="container">
-        <div className="header">
+    <section ref={ref} className={styles.section} id="talks">
+      <div className={styles.container}>
+        <div className={styles.header}>
           <motion.h2
+            className={styles.title}
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -28,7 +30,7 @@ export default function Talks() {
           </motion.h2>
           <motion.a
             href="#talks"
-            className="seeAll"
+            className={styles.seeAll}
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -38,28 +40,31 @@ export default function Talks() {
           </motion.a>
         </div>
 
-        <div className="grid">
+        <div className={styles.grid}>
           {talks.map((talk, index) => (
-            <motion.div
+            <motion.a
               key={talk.id}
-              className={talk.large ? "card cardLarge" : "card"}
+              href={`https://youtu.be/${talk.videoId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.card} ${talk.large ? styles.cardLarge : ''}`}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -8 }}
             >
-              <div className="imageContainer">
+              <div className={styles.imageWrapper}>
                 <img 
                   src={`https://img.youtube.com/vi/${talk.videoId}/maxresdefault.jpg`} 
                   alt={talk.title}
-                  className="image"
+                  className={styles.image}
                 />
-                <div className="stripes"></div>
-                <div className="overlay">
-                  <h3>{talk.title}</h3>
-                  <p>{talk.speaker}</p>
+                <div className={styles.overlay}>
+                  <h3 className={styles.overlayTitle}>{talk.title}</h3>
+                  <p className={styles.overlaySpeaker}>{talk.speaker}</p>
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>
