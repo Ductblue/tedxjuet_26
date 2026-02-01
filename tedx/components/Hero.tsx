@@ -36,48 +36,38 @@ export default function Hero() {
           zIndex: 0,
           y
         }}>
+          {/* Video Background */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center'
+            }}
+          >
+            <source src="/webm/try.webm" type="video/webm" />
+          </video>
+          
+          {/* Dark Overlay for Text Readability */}
           <div style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(135deg, rgba(235, 0, 40, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%)',
+            background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.7) 100%)',
             zIndex: 1
           }}></div>
-          <motion.div 
-            style={{
-              position: 'absolute',
-              inset: 0,
-              overflow: 'hidden'
-            }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.5 }}
-          >
-            {[...Array(6)].map((_, i) => (
-              <motion.div
-                key={i}
-                style={{
-                  position: 'absolute',
-                  width: '400px',
-                  height: '400px',
-                  borderRadius: '50%',
-                  border: '2px solid rgba(235, 0, 40, 0.3)',
-                  left: `${20 + i * 15}%`,
-                  top: `${30 + (i % 2) * 20}%`,
-                }}
-                animate={{
-                  y: [0, -30, 0],
-                  scale: [1, 1.1, 1],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: 4 + i * 0.5,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  delay: i * 0.3,
-                }}
-              />
-            ))}
-          </motion.div>
+
+          {/* Red Accent Overlay */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'radial-gradient(circle at 30% 50%, rgba(235, 0, 40, 0.15) 0%, transparent 50%)',
+            zIndex: 1
+          }}></div>
         </motion.div>
 
         <motion.div style={{
