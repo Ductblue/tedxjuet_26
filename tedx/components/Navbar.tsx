@@ -2,18 +2,25 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [showScrollToTop, setShowScrollToTop] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+      setShowScrollToTop(window.scrollY > 300)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   return (
     <>
@@ -40,20 +47,22 @@ export default function Navbar() {
           justifyContent: 'space-between',
           alignItems: 'center'
         }}>
-          <motion.div 
-            style={{ fontSize: '1.8rem', fontWeight: 'bold', cursor: 'pointer' }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span style={{ color: '#EB0028' }}>TEDx</span>
-            <span style={{ color: '#ffffff' }}>JUET</span>
-          </motion.div>
+          <Link href="/" style={{ textDecoration: 'none' }}>
+            <motion.div 
+              style={{ fontSize: '1.8rem', fontWeight: 'bold', cursor: 'pointer' }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span style={{ color: '#EB0028' }}>TEDx</span>
+              <span style={{ color: '#ffffff' }}>JUET</span>
+            </motion.div>
+          </Link>
 
           <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
-            {['About', 'Events', 'Talks', 'Speakers', 'Sponsors', 'Volunteer'].map((item, i) => (
+            {['About', 'Events', 'Talks', 'Speakers', 'Sponsors', 'Team'].map((item, i) => (
               <motion.a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={item === 'Team' ? '/team' : `#${item.toLowerCase()}`}
                 style={{
                   color: '#ffffff',
                   fontSize: '0.95rem',
@@ -149,6 +158,38 @@ export default function Navbar() {
             ))}
           </div>
         </motion.div>
+      )}
+
+      {showScrollToTop && (
+        <motion.button
+          onClick={scrollToTop}
+          style={{
+            position: 'fixed',
+            bottom: '2rem',
+            right: '2rem',
+            width: '50px',
+            height: '50px',
+            borderRadius: '50%',
+            background: '#EB0028',
+            border: 'none',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 500,
+            fontSize: '1.5rem',
+            color: '#ffffff',
+            boxShadow: '0 4px 15px rgba(235, 0, 40, 0.4)'
+          }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0 }}
+          whileHover={{ scale: 1.1, boxShadow: '0 6px 20px rgba(235, 0, 40, 0.6)' }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.3 }}
+        >
+          ↑
+        </motion.button>
       )}
     </>
   )
