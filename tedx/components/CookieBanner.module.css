@@ -4,10 +4,11 @@
   left: 0;
   right: 0;
   z-index: 10000;
-  background: rgba(26, 26, 26, 0.98);
+  background: rgba(0, 0, 0, 0.98);
   backdrop-filter: blur(20px);
-  padding: 1.5rem;
-  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.3);
+  padding: 2rem 1.5rem;
+  box-shadow: 0 -4px 30px rgba(235, 0, 40, 0.2);
+  border-top: 1px solid rgba(235, 0, 40, 0.3);
 }
 
 .content {
@@ -23,7 +24,7 @@
   flex: 1;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #ccc;
+  color: #ffffff;
 }
 
 .buttons {
@@ -45,12 +46,12 @@
 .deny {
   background: transparent;
   color: var(--white);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid var(--red-primary);
 }
 
 .deny:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(235, 0, 40, 0.1);
+  border-color: var(--red-primary);
 }
 
 .accept {

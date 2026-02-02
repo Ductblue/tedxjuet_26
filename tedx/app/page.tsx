@@ -5,6 +5,8 @@ import Hero from '@/components/Hero'
 import TedxInfo from '@/components/TedxInfo'
 import Events from '@/components/Events'
 import Talks from '@/components/Talks'
+import CardSlider from '@/components/CardSlider'
+import Sponsors from '@/components/Sponsors'
 import CallToAction from '@/components/CallToAction'
 import Footer from '@/components/Footer'
 import CookieBanner from '@/components/CookieBanner'
@@ -31,6 +33,8 @@ export default function Home() {
       <Hero />
       <Events />
       <Talks />
+      <CardSlider />
+      <Sponsors />
       <CallToAction />
       <Footer />
       {showCookie && <CookieBanner onResponse={handleCookieResponse} />}

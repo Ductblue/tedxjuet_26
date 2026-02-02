@@ -1,0 +1,14 @@
+{
+  "name": "tedxjuet-premium",
+  "version": "1.0.0",
+  "description": "TEDxJUET Premium Website",
+  "scripts": {
+    "dev": "cd tedx && npm run dev",
+    "build": "cd tedx && npm run build",
+    "start": "cd tedx && npm start",
+    "install-deps": "cd tedx && npm install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
