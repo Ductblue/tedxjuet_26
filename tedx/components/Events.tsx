@@ -44,6 +44,28 @@ export default function Events() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [modelScale, setModelScale] = useState(2.5)
+  const [shouldLoadModel, setShouldLoadModel] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth <= 768 || 
+                    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      setIsMobile(mobile)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+  
+  // Only load 3D model when section is near viewport AND not on mobile
+  useEffect(() => {
+    if (isInView && !isMobile) {
+      setShouldLoadModel(true)
+    }
+  }, [isInView, isMobile])
   
   useEffect(() => {
     const updateScale = () => {
@@ -167,14 +189,35 @@ export default function Events() {
               style={{ cursor: 'pointer' }}
             >
               <div className="imagePlaceholder" style={{ position: 'relative' }}>
-                <Canvas camera={{ position: [0, 0, 4.5], fov: 50 }} style={{ width: '100%', height: '100%' }}>
-                  <ambientLight intensity={0.7} />
-                  <spotLight position={[5, 5, 5]} angle={0.3} penumbra={1} intensity={2} />
-                  <pointLight position={[-5, 0, 5]} intensity={0.5} />
-                  <Suspense fallback={null}>
-                    <Model mousePosition={mousePosition} scale={modelScale} />
-                  </Suspense>
-                </Canvas>
+                {!isMobile && shouldLoadModel ? (
+                  <Canvas camera={{ position: [0, 0, 4.5], fov: 50 }} style={{ width: '100%', height: '100%' }}>
+                    <ambientLight intensity={0.7} />
+                    <spotLight position={[5, 5, 5]} angle={0.3} penumbra={1} intensity={2} />
+                    <pointLight position={[-5, 0, 5]} intensity={0.5} />
+                    <Suspense fallback={
+                      <mesh>
+                        <boxGeometry args={[1, 1, 1]} />
+                        <meshStandardMaterial color="#EB0028" />
+                      </mesh>
+                    }>
+                      <Model mousePosition={mousePosition} scale={modelScale} />
+                    </Suspense>
+                  </Canvas>
+                ) : (
+                  <div style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'linear-gradient(135deg, #EB0028 0%, #8B0000 100%)',
+                    color: '#fff'
+                  }}>
+                    <div className="circleDecor circle1"></div>
+                    <div className="circleDecor circle2"></div>
+                    <div className="circleDecor circle3"></div>
+                  </div>
+                )}
               </div>
             </motion.div>
           </div>
