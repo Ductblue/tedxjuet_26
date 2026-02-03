@@ -105,4 +105,41 @@
   .content h1 {
     font-size: clamp(2rem, 10vw, 4rem);
   }
+  
+  .content {
+    padding: 0 1.5rem;
+  }
+  
+  .scrollIndicator {
+    bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 100dvh;
+  }
+  
+  .content {
+    padding: 0 1rem;
+  }
+  
+  .content h1 {
+    font-size: clamp(1.75rem, 12vw, 3rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  .circle {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .scrollIndicator {
+    bottom: 1.5rem;
+  }
+  
+  .mouse {
+    width: 22px;
+    height: 35px;
+  }
 }

@@ -1,14 +1,80 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, Suspense, useState, useEffect } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { useGLTF } from '@react-three/drei'
+import * as THREE from 'three'
+
+function Model({ mousePosition, scale = 2.5 }: { mousePosition: { x: number; y: number }, scale?: number }) {
+  const { scene } = useGLTF('/3d logo/tedx+logo+3d+model.glb')
+  const modelRef = useRef<THREE.Group>(null)
+  
+  // Apply red color to all meshes in the model
+  scene.traverse((child: any) => {
+    if (child.isMesh) {
+      child.material.color.set('#EB0028')
+      child.material.emissive.set('#EB0028')
+      child.material.emissiveIntensity = 0.2
+    }
+  })
+  
+  // Smoothly rotate model based on mouse position
+  useFrame(() => {
+    if (modelRef.current) {
+      // Limit rotation to about 70 degrees on each side (140 degrees total)
+      const maxRotation = Math.PI * 0.39 // ~70 degrees in radians
+      const targetRotationY = (Math.PI * 1.5) + mousePosition.x * maxRotation // Start at 270 degrees (90 + 180)
+      const targetRotationX = mousePosition.y * maxRotation * 0.5
+      
+      modelRef.current.rotation.y += (targetRotationY - modelRef.current.rotation.y) * 0.1
+      modelRef.current.rotation.x += (targetRotationX - modelRef.current.rotation.x) * 0.1
+    }
+  })
+  
+  return (
+    <group ref={modelRef} rotation={[0, Math.PI * 1.5, 0]} position={[0, 0, 0]}>
+      <primitive object={scene} scale={scale} />
+    </group>
+  )
+}
 
 export default function Events() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [modelScale, setModelScale] = useState(2.5)
+  
+  useEffect(() => {
+    const updateScale = () => {
+      if (window.innerWidth <= 640) {
+        setModelScale(1.5)
+      } else if (window.innerWidth <= 968) {
+        setModelScale(2)
+      } else {
+        setModelScale(2.5)
+      }
+    }
+    
+    updateScale()
+    window.addEventListener('resize', updateScale)
+    return () => window.removeEventListener('resize', updateScale)
+  }, [])
+  
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = ((e.clientX - rect.left) / rect.width) * 2 - 1
+    const y = -((e.clientY - rect.top) / rect.height) * 2 + 1
+    setMousePosition({ x, y })
+  }
+  
+  const handleMouseLeave = () => {
+    setMousePosition({ x: 0, y: 0 })
+  }
 
   return (
     <section ref={ref} id="events" style={{
+      position: 'relative',
       background: '#000000',
       padding: '100px 0'
     }}>
@@ -96,11 +162,19 @@ export default function Events() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              style={{ cursor: 'pointer' }}
             >
-              <div className="imagePlaceholder">
-                <div className="circleDecor circle1"></div>
-                <div className="circleDecor circle2"></div>
-                <div className="circleDecor circle3"></div>
+              <div className="imagePlaceholder" style={{ position: 'relative' }}>
+                <Canvas camera={{ position: [0, 0, 4.5], fov: 50 }} style={{ width: '100%', height: '100%' }}>
+                  <ambientLight intensity={0.7} />
+                  <spotLight position={[5, 5, 5]} angle={0.3} penumbra={1} intensity={2} />
+                  <pointLight position={[-5, 0, 5]} intensity={0.5} />
+                  <Suspense fallback={null}>
+                    <Model mousePosition={mousePosition} scale={modelScale} />
+                  </Suspense>
+                </Canvas>
               </div>
             </motion.div>
           </div>

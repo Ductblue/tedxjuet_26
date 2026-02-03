@@ -24,6 +24,22 @@ export default function Navbar() {
 
   return (
     <>
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .desktop-menu {
+            display: none !important;
+          }
+          .mobile-hamburger {
+            display: flex !important;
+          }
+        }
+        @media (min-width: 769px) {
+          .desktop-menu {
+            display: flex !important;
+          }
+        }
+      `}</style>
+      
       <motion.nav
         style={{
           position: 'fixed',
@@ -33,7 +49,9 @@ export default function Navbar() {
           background: isScrolled ? 'rgba(0, 0, 0, 0.95)' : 'rgba(0, 0, 0, 0.5)',
           backdropFilter: 'blur(10px)',
           borderBottom: isScrolled ? '1px solid rgba(235, 0, 40, 0.3)' : '1px solid transparent',
-          transition: 'all 0.3s ease'
+          transition: 'all 0.3s ease',
+          left: 0,
+          right: 0
         }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -42,14 +60,16 @@ export default function Navbar() {
         <div style={{
           maxWidth: '1400px',
           margin: '0 auto',
-          padding: '1.2rem 2rem',
+          padding: '1.2rem 1.5rem',
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center'
+          alignItems: 'center',
+          width: '100%',
+          boxSizing: 'border-box'
         }}>
           <Link href="/" style={{ textDecoration: 'none' }}>
             <motion.div 
-              style={{ fontSize: '1.8rem', fontWeight: 'bold', cursor: 'pointer' }}
+              style={{ fontSize: 'clamp(1.25rem, 4vw, 1.8rem)', fontWeight: 'bold', cursor: 'pointer' }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -58,7 +78,11 @@ export default function Navbar() {
             </motion.div>
           </Link>
 
-          <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
+          <div style={{ 
+            display: 'flex', 
+            gap: '2.5rem', 
+            alignItems: 'center',
+          }} className="desktop-menu">
             {['About', 'Events', 'Talks', 'Speakers', 'Sponsors', 'Team'].map((item, i) => (
               <motion.a
                 key={item}
@@ -68,7 +92,8 @@ export default function Navbar() {
                   fontSize: '0.95rem',
                   fontWeight: '500',
                   transition: 'color 0.3s',
-                  textDecoration: 'none'
+                  textDecoration: 'none',
+                  whiteSpace: 'nowrap'
                 }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -83,13 +108,15 @@ export default function Navbar() {
           </div>
 
           <div 
+            className="mobile-hamburger"
             style={{
               display: 'none',
               flexDirection: 'column',
               gap: '6px',
               cursor: 'pointer',
               width: '30px',
-              height: '24px'
+              height: '24px',
+              zIndex: 1001
             }}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -124,27 +151,28 @@ export default function Navbar() {
             position: 'fixed',
             top: 0,
             left: 0,
-            width: '100%',
+            width: '100vw',
             height: '100vh',
-            background: 'rgba(0, 0, 0, 0.95)',
-            zIndex: 999,
+            background: 'rgba(0, 0, 0, 0.97)',
+            zIndex: 1000,
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            overflow: 'hidden'
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setMobileMenuOpen(false)}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', textAlign: 'center' }}>
-            {['About', 'Events', 'Talks', 'Speakers', 'Sponsors', 'Volunteer'].map((item, i) => (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', textAlign: 'center', padding: '2rem' }}>
+            {['About', 'Events', 'Talks', 'Speakers', 'Sponsors', 'Team'].map((item, i) => (
               <motion.a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={item === 'Team' ? '/team' : `#${item.toLowerCase()}`}
                 style={{
                   color: '#ffffff',
-                  fontSize: '2rem',
+                  fontSize: 'clamp(1.5rem, 5vw, 2rem)',
                   fontWeight: '700',
                   textDecoration: 'none'
                 }}

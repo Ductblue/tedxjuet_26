@@ -15,35 +15,30 @@ export default function TedxInfo() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          What is TEDx?
+          TEDxJUET: Untethered
         </motion.h2>
 
-        <motion.a
-          href="https://www.ted.com/about/programs-initiatives/tedx-program"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="link"
-          initial={{ opacity: 0, x: -20 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          whileHover={{ x: 5 }}
-        >
-          TEDx PROGRAM <span className="arrow">→</span>
-        </motion.a>
-
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
-          In the spirit of ideas worth spreading, TED has created a program called TEDx.
-          TEDx is a program of local, self-organized events that bring people together to
-          share a TED-like experience. Our event is called <strong>TEDxMiami</strong>, where x =
-          independently organized TED event. At our TEDxMiami event, TED Talks video and live
-          speakers will combine to spark deep discussion and connection in a small group. The TED
-          Conference provides general guidance for the TEDx program, but individual TEDx
-          events, including ours, are self-organized.
-        </motion.p>
+          <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem', color: '#e62b1e' }}>
+            TEDJUET 2026: "Untethered"
+          </h3>
+          
+          <p style={{ marginBottom: '1.5rem' }}>
+            TEDJUET 2026, themed <strong>"Untethered,"</strong> explores what it means to move beyond emotional, social, and systemic constraints in a rapidly changing world. The event will spotlight ideas centered on reclaiming emotional depth in an age of performative connection, affirming identity as a fundamental human right, and reigniting passion and sincerity in a culture driven by speed, algorithms, and convenience.
+          </p>
+          
+          <p style={{ marginBottom: '1.5rem' }}>
+            Through lived experiences and thoughtful perspectives, the talks aim to challenge emotional numbness, question inherited narratives, and encourage courage, authenticity, and accountability.
+          </p>
+          
+          <p>
+            <strong>"Untethered"</strong> invites audiences to reflect deeply, reconnect with what makes us human, and imagine more grounded, intentional ways of living, relating, and creating.
+          </p>
+        </motion.div>
       </div>
     </section>
   )

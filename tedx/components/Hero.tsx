@@ -5,8 +5,6 @@ import { useRef } from 'react'
 
 export default function Hero() {
   const ref = useRef(null)
-  const tedxRef = useRef(null)
-  const isInView = useInView(tedxRef, { once: true, margin: '-100px' })
   
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -161,86 +159,6 @@ export default function Hero() {
           right: 0,
           height: '300px',
           background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 30%, rgba(0, 0, 0, 0.7) 60%, #000000 100%)',
-          zIndex: 1,
-          pointerEvents: 'none'
-        }}></div>
-      </section>
-
-      {/* TedxInfo Section */}
-      <section ref={tedxRef} id="about" style={{
-        position: 'relative',
-        padding: '120px 0 100px',
-        background: '#000000'
-      }}>
-        <div style={{
-          maxWidth: '1000px',
-          margin: '0 auto',
-          padding: '0 2rem'
-        }}>
-          <motion.h2
-            style={{
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-              fontWeight: 800,
-              marginBottom: '2rem',
-              color: '#ffffff'
-            }}
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            What is TEDx?
-          </motion.h2>
-
-          <motion.a
-            href="https://www.ted.com/about/programs-initiatives/tedx-program"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-block',
-              fontSize: '0.9rem',
-              fontWeight: 700,
-              color: '#EB0028',
-              letterSpacing: '1.5px',
-              marginBottom: '2.5rem',
-              transition: 'all 0.3s'
-            }}
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ x: 5 }}
-          >
-            TEDx PROGRAM <span style={{ display: 'inline-block', marginLeft: '8px', transition: 'transform 0.3s' }}>→</span>
-          </motion.a>
-
-          <motion.p
-            style={{
-              fontSize: '1.2rem',
-              lineHeight: 1.9,
-              color: 'rgba(255, 255, 255, 0.85)',
-              fontWeight: 400
-            }}
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            In the spirit of ideas worth spreading, TED has created a program called TEDx.
-            TEDx is a program of local, self-organized events that bring people together to
-            share a TED-like experience. Our event is called <strong style={{ fontWeight: 700, color: '#EB0028' }}>TEDxJUET</strong>, where x =
-            independently organized TED event. At our TEDxJUET event, TED Talks video and live
-            speakers will combine to spark deep discussion and connection in a small group. The TED
-            Conference provides general guidance for the TEDx program, but individual TEDx
-            events, including ours, are self-organized.
-          </motion.p>
-        </div>
-
-        {/* Gradient Transition to Events */}
-        <div style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '200px',
-          background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.7) 70%, #000000 100%)',
           zIndex: 1,
           pointerEvents: 'none'
         }}></div>

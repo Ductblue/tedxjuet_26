@@ -144,4 +144,26 @@
   .hamburger {
     display: flex;
   }
+  
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .logo {
+    font-size: 1.25rem;
+  }
+  
+  .mobileMenu a {
+    font-size: 1.5rem;
+  }
 }

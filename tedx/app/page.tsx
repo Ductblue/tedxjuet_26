@@ -28,9 +28,10 @@ export default function Home() {
   }
 
   return (
-    <main>
+    <main style={{ width: '100%', maxWidth: '100vw', overflowX: 'hidden', position: 'relative' }}>
       <Navbar />
       <Hero />
+      <TedxInfo />
       <Events />
       <Talks />
       <CardSlider />
