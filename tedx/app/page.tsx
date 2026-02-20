@@ -5,6 +5,7 @@ import Hero from '@/components/Hero'
 import TedxInfo from '@/components/TedxInfo'
 import Events from '@/components/Events'
 import Talks from '@/components/Talks'
+import Speakers from '@/components/Speakers'
 import CardSlider from '@/components/CardSlider'
 import Sponsors from '@/components/Sponsors'
 import CallToAction from '@/components/CallToAction'
@@ -34,6 +35,7 @@ export default function Home() {
       <TedxInfo />
       <Events />
       <Talks />
+      <Speakers />
       <CardSlider />
       <Sponsors />
       <CallToAction />
