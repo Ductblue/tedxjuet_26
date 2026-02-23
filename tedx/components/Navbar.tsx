@@ -3,11 +3,14 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useRouter, usePathname } from 'next/navigation'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [showScrollToTop, setShowScrollToTop] = useState(false)
+  const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,28 +21,35 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const handleNavigation = (item: string) => {
+    const isTeamPage = pathname === '/team'
+    const sectionId = item.toLowerCase()
+
+    if (isTeamPage) {
+      // Navigate to home page first, then scroll to section
+      router.push(`/#${sectionId}`)
+      // Small delay to ensure page is loaded before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      // Already on home page, just scroll to section
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+  }
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
     <>
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .desktop-menu {
-            display: none !important;
-          }
-          .mobile-hamburger {
-            display: flex !important;
-          }
-        }
-        @media (min-width: 769px) {
-          .desktop-menu {
-            display: flex !important;
-          }
-        }
-      `}</style>
-      
       <motion.nav
         style={{
           position: 'fixed',
@@ -49,9 +59,7 @@ export default function Navbar() {
           background: isScrolled ? 'rgba(0, 0, 0, 0.95)' : 'rgba(0, 0, 0, 0.5)',
           backdropFilter: 'blur(10px)',
           borderBottom: isScrolled ? '1px solid rgba(235, 0, 40, 0.3)' : '1px solid transparent',
-          transition: 'all 0.3s ease',
-          left: 0,
-          right: 0
+          transition: 'all 0.3s ease'
         }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -60,16 +68,14 @@ export default function Navbar() {
         <div style={{
           maxWidth: '1400px',
           margin: '0 auto',
-          padding: '1.2rem 1.5rem',
+          padding: '1.2rem 2rem',
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center',
-          width: '100%',
-          boxSizing: 'border-box'
+          alignItems: 'center'
         }}>
           <Link href="/" style={{ textDecoration: 'none' }}>
             <motion.div 
-              style={{ fontSize: 'clamp(1.25rem, 4vw, 1.8rem)', fontWeight: 'bold', cursor: 'pointer' }}
+              style={{ fontSize: '1.8rem', fontWeight: 'bold', cursor: 'pointer' }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -78,45 +84,49 @@ export default function Navbar() {
             </motion.div>
           </Link>
 
-          <div style={{ 
-            display: 'flex', 
-            gap: '2.5rem', 
-            alignItems: 'center',
-          }} className="desktop-menu">
+          <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
             {['About', 'Events', 'Talks', 'Speakers', 'Sponsors', 'Team'].map((item, i) => (
-              <motion.a
+              <motion.button
                 key={item}
-                href={item === 'Team' ? '/team' : `#${item.toLowerCase()}`}
+                onClick={() => {
+                  if (item === 'Team') {
+                    router.push('/team')
+                  } else {
+                    handleNavigation(item)
+                  }
+                }}
                 style={{
                   color: '#ffffff',
                   fontSize: '0.95rem',
                   fontWeight: '500',
                   transition: 'color 0.3s',
                   textDecoration: 'none',
-                  whiteSpace: 'nowrap'
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  padding: 0,
+                  font: 'inherit'
                 }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 + 0.3 }}
                 whileHover={{ y: -2 }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#EB0028'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'}
+                onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = '#EB0028'}
+                onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = '#ffffff'}
               >
                 {item}
-              </motion.a>
+              </motion.button>
             ))}
           </div>
 
           <div 
-            className="mobile-hamburger"
             style={{
               display: 'none',
               flexDirection: 'column',
               gap: '6px',
               cursor: 'pointer',
               width: '30px',
-              height: '24px',
-              zIndex: 1001
+              height: '24px'
             }}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -151,38 +161,48 @@ export default function Navbar() {
             position: 'fixed',
             top: 0,
             left: 0,
-            width: '100vw',
+            width: '100%',
             height: '100vh',
-            background: 'rgba(0, 0, 0, 0.97)',
-            zIndex: 1000,
+            background: 'rgba(0, 0, 0, 0.95)',
+            zIndex: 999,
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            overflow: 'hidden'
+            justifyContent: 'center'
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setMobileMenuOpen(false)}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', textAlign: 'center', padding: '2rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', textAlign: 'center' }}>
             {['About', 'Events', 'Talks', 'Speakers', 'Sponsors', 'Team'].map((item, i) => (
-              <motion.a
+              <motion.button
                 key={item}
-                href={item === 'Team' ? '/team' : `#${item.toLowerCase()}`}
+                onClick={() => {
+                  setMobileMenuOpen(false)
+                  if (item === 'Team') {
+                    router.push('/team')
+                  } else {
+                    handleNavigation(item)
+                  }
+                }}
                 style={{
                   color: '#ffffff',
-                  fontSize: 'clamp(1.5rem, 5vw, 2rem)',
+                  fontSize: '2rem',
                   fontWeight: '700',
-                  textDecoration: 'none'
+                  textDecoration: 'none',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  padding: 0,
+                  font: 'inherit'
                 }}
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
-                onClick={() => setMobileMenuOpen(false)}
               >
                 {item}
-              </motion.a>
+              </motion.button>
             ))}
           </div>
         </motion.div>
