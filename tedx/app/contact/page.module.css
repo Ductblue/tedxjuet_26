@@ -1,0 +1,521 @@
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  padding: 120px 20px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section.cursorHidden {
+  cursor: none;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  position: relative;
+}
+
+.heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 3rem;
+  line-height: 1.2;
+}
+
+.getInTouchRed {
+  color: #EB0028;
+}
+
+.descriptionTile {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(235, 0, 40, 0.3);
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.descriptionText {
+  color: #b0b0b0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0;
+  font-weight: 500;
+}
+
+.highlightText {
+  color: #EB0028;
+  font-weight: 700;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Event Details Section */
+.eventDetailsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sectionHeading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.sectionHeading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #EB0028 0%, rgba(235, 0, 40, 0.3) 100%);
+  border-radius: 2px;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.detailTile {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(235, 0, 40, 0.2);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.detailTile:hover {
+  background: rgba(235, 0, 40, 0.1);
+  border-color: rgba(235, 0, 40, 0.5);
+}
+
+.tileIcon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tileTitle {
+  color: #EB0028;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.tileValue {
+  color: #b0b0b0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.followUsSection {
+  margin-top: 2rem;
+}
+
+.followUsHeading {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.socialLinksContainer {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: rgba(235, 0, 40, 0.2);
+  border: 2px solid rgba(235, 0, 40, 0.3);
+  border-radius: 50%;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: none;
+  position: relative;
+  padding: 0;
+  font-size: 0;
+}
+
+.socialLink svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  stroke-width: 0;
+  fill: currentColor;
+}
+
+.socialLink:hover {
+  background: #EB0028;
+  border-color: #EB0028;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(235, 0, 40, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Find Us Here Section */
+.findUsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mapContainer {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(235, 0, 40, 0.2);
+  border: 1px solid rgba(235, 0, 40, 0.2);
+  margin-bottom: 2rem;
+  width: 100%;
+  display: block;
+}
+
+.mapContainer iframe {
+  display: block;
+  width: 100%;
+  height: 250px;
+  border: none;
+}
+
+.locationTile {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(235, 0, 40, 0.2);
+  padding: 0;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.locationTile:hover {
+  background: rgba(235, 0, 40, 0.1);
+  border-color: rgba(235, 0, 40, 0.5);
+}
+
+.locationItem {
+  margin-bottom: 0;
+  padding: 2rem;
+  padding-top: 1.5rem;
+}
+
+.locationItem:first-of-type {
+  padding-top: 2rem;
+}
+
+.locationItem:last-child {
+  margin-bottom: 0;
+  padding-bottom: 2rem;
+}
+
+.locationLabel {
+  color: #EB0028;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.locationLabel::before {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.locationItem:nth-child(1) .locationLabel::before {
+  content: '📍';
+}
+
+.locationItem:nth-child(3) .locationLabel::before {
+  content: '🏠';
+}
+
+.locationItem:nth-child(5) .locationLabel::before {
+  content: '🛣️';
+}
+
+.locationText {
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(235, 0, 40, 0.2);
+  margin: 1.5rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .heading {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .descriptionTile {
+    padding: 2rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .descriptionText {
+    font-size: 1rem;
+  }
+
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .sectionHeading {
+    font-size: 1.8rem;
+  }
+
+  .detailsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .detailTile {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .locationTile {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 100px 20px 60px;
+  }
+
+  .heading {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .descriptionTile {
+    padding: 1.8rem 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .descriptionText {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .sectionHeading {
+    font-size: 1.5rem;
+  }
+
+  .sectionHeading::after {
+    width: 50px;
+  }
+
+  .detailsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .detailTile {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .tileIcon {
+    font-size: 2rem;
+  }
+
+  .tileTitle {
+    font-size: 0.9rem;
+  }
+
+  .tileValue {
+    font-size: 1rem;
+  }
+
+  .followUsSection {
+    padding: 0;
+    margin-top: 2rem;
+  }
+
+  .socialLinksContainer {
+    gap: 1rem;
+  }
+
+  .socialLink {
+    width: 50px;
+    height: 50px;
+  }
+
+  .socialLink svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .mapContainer {
+    min-height: 300px;
+  }
+
+  .mapContainer iframe {
+    min-height: 300px;
+  }
+
+  .locationTile {
+    padding: 1.5rem;
+  }
+
+  .locationLabel {
+    font-size: 0.85rem;
+  }
+
+  .locationText {
+    font-size: 0.9rem;
+  }
+
+  .divider {
+    margin: 1.2rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 80px 15px 40px;
+  }
+
+  .heading {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .descriptionTile {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .descriptionText {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .sectionHeading {
+    font-size: 1.2rem;
+  }
+
+  .sectionHeading::after {
+    width: 40px;
+    height: 3px;
+  }
+
+  .detailsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .detailTile {
+    padding: 1.2rem 1rem;
+  }
+
+  .tileIcon {
+    font-size: 1.8rem;
+  }
+
+  .tileTitle {
+    font-size: 0.85rem;
+  }
+
+  .tileValue {
+    font-size: 0.95rem;
+  }
+
+  .followUsSection {
+    padding: 0;
+    margin-top: 1.5rem;
+  }
+
+  .followUsHeading {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  .socialLinksContainer {
+    gap: 0.8rem;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .socialLink {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .mapContainer {
+    min-height: 250px;
+  }
+
+  .mapContainer iframe {
+    min-height: 250px;
+  }
+
+  .locationTile {
+    padding: 1.2rem;
+  }
+
+  .locationLabel {
+    font-size: 0.8rem;
+  }
+
+  .locationText {
+    font-size: 0.85rem;
+  }
+
+  .divider {
+    margin: 1rem 0;
+  }
+}

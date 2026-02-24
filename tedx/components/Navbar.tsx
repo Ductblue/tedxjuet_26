@@ -85,12 +85,12 @@ export default function Navbar() {
           </Link>
 
           <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
-            {['About', 'Events', 'Talks', 'Speakers', 'Sponsors', 'Team'].map((item, i) => (
+            {['About', 'Events', 'Talks', 'Speakers', 'Sponsors', 'Team', 'Contact'].map((item, i) => (
               <motion.button
                 key={item}
                 onClick={() => {
-                  if (item === 'Team') {
-                    router.push('/team')
+                  if (item === 'Team' || item === 'Contact') {
+                    router.push(`/${item.toLowerCase()}`)
                   } else {
                     handleNavigation(item)
                   }
@@ -175,13 +175,13 @@ export default function Navbar() {
           onClick={() => setMobileMenuOpen(false)}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', textAlign: 'center' }}>
-            {['About', 'Events', 'Talks', 'Speakers', 'Sponsors', 'Team'].map((item, i) => (
+            {['About', 'Events', 'Talks', 'Speakers', 'Sponsors', 'Team', 'Contact'].map((item, i) => (
               <motion.button
                 key={item}
                 onClick={() => {
                   setMobileMenuOpen(false)
-                  if (item === 'Team') {
-                    router.push('/team')
+                  if (item === 'Team' || item === 'Contact') {
+                    router.push(`/${item.toLowerCase()}`)
                   } else {
                     handleNavigation(item)
                   }
