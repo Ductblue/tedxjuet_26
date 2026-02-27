@@ -168,7 +168,7 @@ export default function Events() {
                 </div>
               </motion.div>
               <motion.a
-                href="#tickets"
+                href="/registration"
                 className="btn"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
