@@ -23,9 +23,10 @@ export default function Navbar() {
 
   const handleNavigation = (item: string) => {
     const isTeamPage = pathname === '/team'
+    const isContactPage = pathname === '/contact'
     const sectionId = item.toLowerCase()
 
-    if (isTeamPage) {
+    if (isTeamPage || isContactPage) {
       // Navigate to home page first, then scroll to section
       router.push(`/#${sectionId}`)
       // Small delay to ensure page is loaded before scrolling
