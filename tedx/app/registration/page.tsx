@@ -124,7 +124,7 @@ export default function RegistrationPage() {
               <div className={styles.divider}>|</div>
               <div className={styles.detailItem}>
                 <span className={styles.icon}>📍</span>
-                <span>JUET Campus Auditorium</span>
+                <span>JUET's MultiPurpose Hall</span>
               </div>
             </motion.div>
           </motion.div>
