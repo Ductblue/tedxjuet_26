@@ -72,7 +72,7 @@ export default function Navbar() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const navItems = ['About', 'Events', 'Speakers', 'Team', 'Contact']
+  const navItems = ['Home', 'About', 'Events', 'Speakers', 'Team', 'Contact']
 
   // Magnification component for each nav item
   const MagnifyNavItem = ({ item, mouseX }: { item: string; mouseX: number }) => {
@@ -103,7 +103,9 @@ export default function Navbar() {
       <motion.button
         ref={ref}
         onClick={() => {
-          if (item === 'About' || item === 'Speakers' || item === 'Team' || item === 'Contact') {
+          if (item === 'Home') {
+            router.push('/')
+          } else if (item === 'About' || item === 'Speakers' || item === 'Team' || item === 'Contact') {
             router.push(`/${item.toLowerCase()}`)
           } else {
             handleNavigation(item)
@@ -153,7 +155,10 @@ export default function Navbar() {
         justifyContent: 'center',
         padding: '1.25rem 2rem',
         pointerEvents: 'none',
-      }}>
+        boxSizing: 'border-box',
+        width: '100%',
+        overflowX: 'hidden',
+      }} className="navbar-outer-container">
         <motion.nav
           ref={navRef}
           style={{
@@ -199,6 +204,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" style={{ textDecoration: 'none', zIndex: 1001, flexShrink: 0 }}>
             <motion.div 
+              className="navbar-logo"
               style={{ 
                 fontSize: '1.4rem', 
                 fontWeight: '800', 
@@ -241,11 +247,12 @@ export default function Navbar() {
               border: 'none',
               cursor: 'pointer',
               padding: '0.5rem',
-              zIndex: 1001,
+              zIndex: 10002,
               position: 'relative',
               width: '32px',
               height: '24px',
               filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))',
+              transition: 'all 0.3s ease',
             }}
           >
             <span style={{
@@ -260,6 +267,7 @@ export default function Navbar() {
               transform: mobileMenuOpen ? 'rotate(45deg)' : 'none',
               transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
               boxShadow: mobileMenuOpen ? '0 0 10px rgba(235, 0, 40, 0.6)' : 'none',
+              opacity: mobileMenuOpen ? 0 : 1,
             }} />
             <span style={{
               display: 'block',
@@ -285,83 +293,278 @@ export default function Navbar() {
               transform: mobileMenuOpen ? 'rotate(-45deg)' : 'none',
               transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
               boxShadow: mobileMenuOpen ? '0 0 10px rgba(235, 0, 40, 0.6)' : 'none',
+              opacity: mobileMenuOpen ? 0 : 1,
             }} />
           </button>
           </div>
         </motion.nav>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Slide from Right */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100vh',
-              background: 'rgba(0, 0, 0, 0.95)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              zIndex: 1000,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '2rem'
-            }}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.1 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-          >
-            <div style={{ 
-              display: 'flex', 
-              flexDirection: 'column', 
-              gap: '2rem', 
-              textAlign: 'center',
-              width: '100%'
-            }}>
-              {navItems.map((item, i) => (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100vh',
+                background: 'rgba(0, 0, 0, 0.7)',
+                backdropFilter: 'blur(8px)',
+                zIndex: 9998,
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            
+            {/* Menu Panel */}
+            <motion.div
+              style={{
+                position: 'fixed',
+                top: 0,
+                right: 0,
+                width: '85%',
+                maxWidth: '400px',
+                height: '100vh',
+                background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)',
+                zIndex: 9999,
+                display: 'flex',
+                flexDirection: 'column',
+                padding: '2rem 1.5rem',
+                overflowY: 'auto',
+                boxShadow: '-10px 0 50px rgba(235, 0, 40, 0.3)',
+                borderLeft: '1px solid rgba(235, 0, 40, 0.2)',
+              }}
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ 
+                type: 'spring',
+                damping: 25,
+                stiffness: 200
+              }}
+            >
+              {/* Header with Close Button */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '3rem',
+              }}>
                 <motion.button
-                  key={item}
-                  onClick={() => {
-                    if (item === 'About' || item === 'Speakers' || item === 'Team' || item === 'Contact') {
-                      router.push(`/${item.toLowerCase()}`)
-                    } else {
-                      handleNavigation(item)
-                    }
-                  }}
+                  onClick={() => setMobileMenuOpen(false)}
                   style={{
-                    color: '#ffffff',
-                    fontSize: '1.75rem',
-                    fontWeight: '600',
                     background: 'none',
                     border: 'none',
                     cursor: 'pointer',
-                    padding: '0.75rem',
-                    letterSpacing: '1px',
-                    textTransform: 'uppercase',
+                    padding: '0.5rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#ffffff',
+                    fontSize: '1.5rem',
                     transition: 'all 0.3s ease',
-                    textShadow: '0 0 20px rgba(255, 255, 255, 0.2)'
                   }}
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 50 }}
-                  transition={{ delay: i * 0.05, type: 'spring', stiffness: 100 }}
-                  whileHover={{ 
-                    scale: 1.1, 
-                    color: '#EB0028',
-                    textShadow: '0 0 30px rgba(235, 0, 40, 0.6)'
-                  }}
-                  whileTap={{ scale: 0.95 }}
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  whileHover={{ scale: 1.1, color: '#EB0028' }}
+                  whileTap={{ scale: 0.9 }}
                 >
-                  {item}
+                  ✕
                 </motion.button>
-              ))}
-            </div>
-          </motion.div>
+
+                {/* Logo in Menu */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                  style={{
+                    fontSize: '1.2rem',
+                    fontWeight: '800',
+                  }}
+                >
+                  <span style={{ color: '#EB0028' }}>TEDx</span>
+                  <span style={{ color: '#ffffff' }}>JUET</span>
+                </motion.div>
+              </div>
+
+              {/* Navigation Items */}
+              <nav style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.5rem',
+                flex: 1,
+              }}>
+                {navItems.map((item, i) => (
+                  <motion.button
+                    key={item}
+                    onClick={() => {
+                      if (item === 'Home') {
+                        router.push('/')
+                        setMobileMenuOpen(false)
+                      } else if (item === 'About' || item === 'Speakers' || item === 'Team' || item === 'Contact') {
+                        router.push(`/${item.toLowerCase()}`)
+                      } else {
+                        handleNavigation(item)
+                      }
+                    }}
+                    style={{
+                      color: '#ffffff',
+                      fontSize: '1.5rem',
+                      fontWeight: '400',
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      padding: '1rem 0',
+                      textAlign: 'left',
+                      transition: 'all 0.3s ease',
+                      position: 'relative',
+                      textTransform: 'capitalize',
+                      letterSpacing: '0.5px',
+                    }}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ 
+                      delay: 0.1 + (i * 0.05),
+                      type: 'spring',
+                      stiffness: 100
+                    }}
+                    whileHover={{ 
+                      x: 10,
+                      color: '#EB0028',
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {item}
+                    <motion.div
+                      style={{
+                        position: 'absolute',
+                        left: 0,
+                        bottom: '0.5rem',
+                        height: '2px',
+                        background: '#EB0028',
+                        width: '0%',
+                      }}
+                      whileHover={{ width: '30px' }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </motion.button>
+                ))}
+              </nav>
+
+              {/* Decorative Geometric Shapes - Top */}
+              <div style={{
+                position: 'absolute',
+                right: 0,
+                top: '10%',
+                width: '45%',
+                height: '200px',
+                overflow: 'hidden',
+                opacity: 0.25,
+                pointerEvents: 'none',
+              }}>
+                <motion.div
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    right: 0,
+                    width: '100%',
+                    height: '60%',
+                    background: 'linear-gradient(135deg, rgba(235, 0, 40, 0.8) 0%, rgba(139, 0, 0, 0.6) 100%)',
+                    borderRadius: '20px 0 0 20px',
+                  }}
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.6 }}
+                />
+                <motion.div
+                  style={{
+                    position: 'absolute',
+                    top: '10px',
+                    right: '10px',
+                    width: '80%',
+                    height: '40%',
+                    background: 'repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8) 5px, transparent 5px, transparent 10px)',
+                  }}
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.6, duration: 0.6 }}
+                />
+                <motion.div
+                  style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    right: 0,
+                    width: '90%',
+                    height: '35%',
+                    background: 'rgba(235, 0, 40, 0.3)',
+                    borderRadius: '20px 0 0 0',
+                  }}
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.7, duration: 0.6 }}
+                />
+              </div>
+
+              {/* Decorative Geometric Shapes - Bottom */}
+              <div style={{
+                position: 'absolute',
+                right: 0,
+                bottom: '20%',
+                width: '45%',
+                height: '150px',
+                overflow: 'hidden',
+                opacity: 0.25,
+                pointerEvents: 'none',
+              }}>
+                <motion.div
+                  style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    right: 0,
+                    width: '100%',
+                    height: '70%',
+                    background: 'linear-gradient(225deg, rgba(139, 0, 0, 0.6) 0%, rgba(235, 0, 40, 0.8) 100%)',
+                    borderRadius: '20px 0 0 0',
+                  }}
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.8, duration: 0.6 }}
+                />
+                <motion.div
+                  style={{
+                    position: 'absolute',
+                    bottom: '40px',
+                    right: '20px',
+                    width: '60%',
+                    height: '30%',
+                    background: 'repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8) 5px, transparent 5px, transparent 10px)',
+                  }}
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.9, duration: 0.6 }}
+                />
+              </div>
+
+              {/* Subtle Grid Background */}
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                backgroundImage: 'linear-gradient(rgba(235, 0, 40, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(235, 0, 40, 0.05) 1px, transparent 1px)',
+                backgroundSize: '20px 20px',
+                opacity: 0.3,
+                pointerEvents: 'none',
+                zIndex: -1,
+              }} />
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
 
@@ -408,6 +611,17 @@ export default function Navbar() {
       </AnimatePresence>
 
       <style jsx global>{`
+        * {
+          box-sizing: border-box;
+        }
+        
+        html, body {
+          max-width: 100vw !important;
+          overflow-x: hidden !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        
         @media (max-width: 968px) {
           .desktop-nav {
             display: none !important;
@@ -418,17 +632,78 @@ export default function Navbar() {
         }
         
         @media (max-width: 768px) {
+          html, body {
+            width: 100% !important;
+          }
+          
+          .navbar-outer-container {
+            padding: 0.5rem 0.4rem !important;
+            justify-content: center !important;
+            overflow: visible !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+          }
+          
           nav {
-            padding: 0.7rem 1.5rem !important;
-            max-width: 90vw !important;
-            gap: 2rem !important;
+            padding: 0.4rem 0.8rem !important;
+            max-width: calc(100% - 0.8rem) !important;
+            width: calc(100% - 0.8rem) !important;
+            gap: 0 !important;
+            border-radius: 16px !important;
+            margin: 0 auto !important;
+            box-sizing: border-box !important;
+          }
+          
+          nav > div {
+            overflow: visible !important;
+          }
+          
+          nav > div > div {
+            width: 100% !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            gap: 0.4rem !important;
+          }
+          
+          nav > div > div a {
+            flex-shrink: 0 !important;
+          }
+          
+          .navbar-logo {
+            font-size: 1.4rem !important;
+          }
+          
+          .hamburger {
+            flex-shrink: 0 !important;
+            width: 28px !important;
+            height: 20px !important;
+            padding: 0.3rem !important;
           }
         }
         
         @media (max-width: 480px) {
+          .navbar-outer-container {
+            padding: 0.4rem 0.3rem !important;
+          }
+          
           nav {
-            padding: 0.6rem 1.2rem !important;
-            gap: 1.5rem !important;
+            padding: 0.35rem 0.6rem !important;
+            border-radius: 12px !important;
+            max-width: calc(100% - 0.6rem) !important;
+            width: calc(100% - 0.6rem) !important;
+          }
+          
+          .navbar-logo {
+            font-size: 1.25rem !important;
+          }
+          
+          .hamburger {
+            width: 26px !important;
+            height: 18px !important;
           }
         }
       `}</style>
