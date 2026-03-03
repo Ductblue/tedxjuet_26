@@ -107,6 +107,8 @@ export default function Navbar() {
             router.push('/')
           } else if (item === 'About' || item === 'Speakers' || item === 'Team' || item === 'Contact') {
             router.push(`/${item.toLowerCase()}`)
+          } else if (item === 'Events') {
+            router.push('/event')
           } else {
             handleNavigation(item)
           }
@@ -411,6 +413,10 @@ export default function Navbar() {
                         setMobileMenuOpen(false)
                       } else if (item === 'About' || item === 'Speakers' || item === 'Team' || item === 'Contact') {
                         router.push(`/${item.toLowerCase()}`)
+                        setMobileMenuOpen(false)
+                      } else if (item === 'Events') {
+                        router.push('/event')
+                        setMobileMenuOpen(false)
                       } else {
                         handleNavigation(item)
                       }

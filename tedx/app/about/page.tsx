@@ -36,13 +36,16 @@ export default function AboutPage() {
           >
             <h1 className={styles.title}>About TEDxJUET</h1>
             <p className={styles.description}>
-              TEDxJUET is an independently organized TEDx event hosted by Jaypee University of Engineering & Technology (JUET), Guna, under the global TED initiative of "Ideas Worth Spreading." It serves as a platform for bold thinkers, innovators, artists, and changemakers from diverse fields to share their stories, spark conversations, and inspire action within and beyond our campus community.
+              TEDxJUET is an independently organized TEDx event hosted at JUET Guna, created with the belief that powerful ideas deserve a space close to home. It brings the spirit of TED – thinking deeply, questioning boldly, and caring about the world they shape. Over the years, TEDxJUET has grown into a shared experience for students, speakers, and the wider community. We've brought together individuals from across the country alongside local voices, not just to inspire, but to connect, reflect, and learn from one another.
             </p>
             <p className={styles.description}>
-              Launched in 2025, TEDxJUET was founded by a visionary team of students who laid the groundwork for what would become one of the most impactful platforms on campus. Our inaugural event centers around the theme "UNTETHERED" - exploring what it means to break free from emotional, social, and systemic constraints in a rapidly changing world.
+              At its heart, TEDxJUET is about nurturing curiosity and pride in ideas. It is a celebration of thoughtful conversation, collaboration, and the belief that meaningful change can begin right here, within the vibrant campus of JUET.
             </p>
             <p className={styles.description}>
-              Through lived experiences and thoughtful perspectives, we spotlight ideas centered on reclaiming emotional depth, affirming identity as a fundamental human right, and reigniting passion and sincerity in a culture driven by speed, algorithms, and convenience. At TEDxJUET, we don't just host talks – we build legacies, one idea at a time.
+              What makes TEDxJUET unique is its student driven spirit and its strong connection to the university community. Curated and organized with care, the event encourages open dialogue across disciplines and backgrounds, creating an environment where ideas are explored with curiosity and respect.
+            </p>
+            <p className={styles.description}>
+              As TEDxJUET continues to grow, it remains committed to creating a space where ideas are shared with honesty, responsibility, and purpose. Each edition is a step toward building a more thoughtful community, one conversation at a time.
             </p>
           </motion.section>
 
@@ -55,10 +58,38 @@ export default function AboutPage() {
           >
             <h1 className={styles.title}>About UNTETHERED</h1>
             <p className={styles.description}>
-              UNTETHERED represents the courage to move beyond limitations - whether they are emotional burdens we carry, societal expectations we conform to, or systemic barriers that hold us back. In a world of constant connectivity yet profound disconnection, this theme invites speakers and attendees to explore genuine freedom.
+              In a world that constantly tells us who to be, how to feel, and how fast to move, "Untethered" is an invitation to pause and break free.
             </p>
             <p className={styles.description}>
-              It's about reclaiming authenticity in an age of performance, finding stillness amid chaos, and rediscovering what it means to be truly present. UNTETHERED challenges us to question the invisible chains we've accepted and imagine what becomes possible when we dare to let go.
+              TEDxJUET 2026 explores what it means to live beyond invisible constraints: emotional, social, digital, and systemic. It is about loosening the ties that bind us to fear, conformity, comparison, and performative living and choosing authenticity over expectation.
+            </p>
+            <p className={styles.description}>
+              As algorithms shape our choices and speed replaces depth, we often lose touch with what truly makes us human. Untethered brings forward ideas that challenge emotional numbness, inherited narratives, and limiting identities. It celebrates courage, the courage to feel deeply, think independently, and live intentionally.
+            </p>
+            <p className={styles.description}>
+              Through lived experiences and honest perspectives, this edition of TEDxJUET seeks to reignite passion, reclaim emotional depth, and affirm individuality as a fundamental human right.
+            </p>
+            <p className={styles.description}>
+              Untethered is not about escape, it is about awareness. It invites us to reconnect with ourselves, question what we've accepted without thought, and imagine more grounded, meaningful ways of living, relating, and creating.
+            </p>
+          </motion.section>
+
+          {/* About JUET */}
+          <motion.section
+            className={styles.section}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <h1 className={styles.title}>About JUET</h1>
+            <p className={styles.description}>
+              Jaypee University of Engineering & Technology, Raghogarh, Guna (Madhya Pradesh) was established in 2010 under the provisions of the Madhya Pradesh Private University Act. The University is recognized by the University Grants Commission under the UGC Act, 1956, and is empowered to award degrees as per Section 22 of the Act.
+            </p>
+            <p className={styles.description}>
+              The University has been awarded NAAC Grade "A+" in Cycle II, effective from March 2023. JUET is situated on a well developed, green campus equipped with modern academic infrastructure, including advanced laboratories and a comprehensive library, creating a conducive environment for learning and research.
+            </p>
+            <p className={styles.description}>
+              JUET offers a wide range of academic programs in emerging areas of technology at the degree level. Research and innovation form a core focus of the University and are integrated into its academic framework to support excellence in education and scholarly pursuits.
             </p>
           </motion.section>
         </div>

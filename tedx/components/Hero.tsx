@@ -115,7 +115,7 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            3rd May 2025
+            11th Apr 2026
           </motion.div>
 
           {/* Event Location */}
@@ -131,7 +131,7 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
           >
-            Jaypee University of Engineering & Technology, Guna
+            Tagore Hall, Jaypee University of Engineering & Technology, Guna
           </motion.div>
 
           {/* Call to Action Buttons */}
@@ -174,7 +174,7 @@ export default function Hero() {
             </motion.a>
             
             <motion.a
-              href="/brochure.pdf"
+              href="/brochure/TEDxJUET Final Broucher.pdf"
               download
               style={{
                 backgroundColor: 'transparent',
@@ -201,45 +201,6 @@ export default function Hero() {
             >
               Download Brochure
             </motion.a>
-          </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          style={{
-            position: 'absolute',
-            bottom: 'clamp(1.5rem, 3vw, 2.5rem)',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '0.5rem',
-            zIndex: 3
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-        >
-          <motion.div
-            style={{
-              width: 'clamp(22px, 3vw, 28px)',
-              height: 'clamp(38px, 5vw, 48px)',
-              border: '2px solid rgba(255, 255, 255, 0.5)',
-              borderRadius: '18px',
-              display: 'flex',
-              justifyContent: 'center',
-              padding: '7px 0'
-            }}
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <motion.div style={{
-              width: '3px',
-              height: '7px',
-              background: '#EB0028',
-              borderRadius: '2px'
-            }} />
           </motion.div>
         </motion.div>
 

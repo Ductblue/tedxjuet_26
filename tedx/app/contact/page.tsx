@@ -9,11 +9,11 @@ import styles from './page.module.css'
 export default function ContactPage() {
   const [cursorHidden, setCursorHidden] = useState(false)
 
-  const eventDetails = [
-    { title: 'Date', value: 'April 11, 2026', icon: '📅' },
-    { title: 'Location', value: 'JUET, Guna', icon: '📍' },
-    { title: 'Expected Attendees', value: '100', icon: '👥' },
-    { title: 'Speakers', value: '10', icon: '🎤' }
+  const contacts = [
+    { name: 'Shreyansh Mishra', phone: '+91 83198 70227' },
+    { name: 'Yash Parasai', phone: '+91 62637 59534' },
+    { name: 'Pria Jha', phone: '+91 96103 73967' },
+    { name: 'Email', phone: 'tedx@juetguna.in', isEmail: true }
   ]
 
   const handleSocialMouseEnter = () => {
@@ -50,30 +50,37 @@ export default function ContactPage() {
           </motion.div>
 
           <div className={styles.mainContent}>
-            {/* Event Details Section */}
+            {/* Contact and Social Section */}
             <motion.div
               className={styles.eventDetailsSection}
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h2 className={styles.sectionHeading}>Event Details</h2>
-              
-              <div className={styles.detailsGrid}>
-                {eventDetails.map((detail, index) => (
-                  <motion.div
-                    key={index}
-                    className={styles.detailTile}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                    whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(235, 0, 40, 0.3)' }}
-                  >
-                    <div className={styles.tileIcon}>{detail.icon}</div>
-                    <h3 className={styles.tileTitle}>{detail.title}</h3>
-                    <p className={styles.tileValue}>{detail.value}</p>
-                  </motion.div>
-                ))}
+              <div className={styles.contactSection}>
+                <h3 className={styles.contactHeading}>Contact Us</h3>
+                <div className={styles.contactsList}>
+                  {contacts.map((contact, index) => (
+                    <motion.div
+                      key={index}
+                      className={styles.contactItem}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
+                    >
+                      <div className={styles.contactName}>{contact.name}</div>
+                      {contact.isEmail ? (
+                        <a href={`mailto:${contact.phone}`} className={styles.contactPhone}>
+                          {contact.phone}
+                        </a>
+                      ) : (
+                        <a href={`tel:${contact.phone}`} className={styles.contactPhone}>
+                          {contact.phone}
+                        </a>
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
               </div>
 
               <div className={styles.followUsSection}>

@@ -224,7 +224,7 @@ export default function TeamPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className={styles.heroTitle}>Our Team</h1>
+            <h1 className={styles.heroTitle}>Core Team</h1>
             <p className={styles.heroSubtitle}>
               Meet the passionate individuals driving TEDxJUET 2025 forward with dedication and innovation
             </p>
