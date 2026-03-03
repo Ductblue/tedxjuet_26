@@ -135,7 +135,7 @@ export default function Events() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                MARCH 15, 2026
+                APRIL 11, 2026
               </motion.div>
               <motion.h3
                 initial={{ opacity: 0, y: 20 }}
@@ -168,7 +168,7 @@ export default function Events() {
                 </div>
               </motion.div>
               <motion.a
-                href="#tickets"
+                href="/registration"
                 className="btn"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}

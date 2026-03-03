@@ -160,8 +160,8 @@ export default function ContactPage() {
                 <div className={styles.locationItem}>
                   <h4 className={styles.locationLabel}>Getting Here</h4>
                   <p className={styles.locationText}>
-                    From Guna Railway Station: ~15 km (Approx 30 mins)<br />
-                    From Bina AIIMS Junction: ~18 km (Approx 35 mins)<br />
+                    From Guna Railway Station: ~30 km (Approx 30 mins)<br />
+                    
                     Well connected by road via NH-44. Easily accessible by public transport and private vehicles. Ample parking available on campus.
                   </p>
                 </div>
