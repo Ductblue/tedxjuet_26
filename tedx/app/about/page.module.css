@@ -1,0 +1,113 @@
+.container {
+  min-height: 100vh;
+  background: #000000;
+  position: relative;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+
+.backgroundPattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(235, 0, 40, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(235, 0, 40, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.backgroundPattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(235, 0, 40, 0.03) 2px,
+      rgba(235, 0, 40, 0.03) 4px
+    );
+  opacity: 0.3;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 3rem);
+  position: relative;
+  z-index: 1;
+}
+
+.section {
+  margin-bottom: clamp(4rem, 8vw, 6rem);
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+  text-align: justify;
+}
+
+.description:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
+  .section {
+    margin-bottom: 3rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-top: 90px;
+    padding-bottom: 50px;
+  }
+
+  .content {
+    padding: 0 1.25rem;
+  }
+
+  .section {
+    margin-bottom: 2.5rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}

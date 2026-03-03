@@ -23,7 +23,8 @@ export default function Hero() {
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
-        background: '#000000'
+        background: '#000000',
+        paddingTop: '80px'
       }}>
         <motion.div style={{
           position: 'absolute',
@@ -72,82 +73,173 @@ export default function Hero() {
           position: 'relative',
           zIndex: 2,
           textAlign: 'center',
-          padding: '0 2rem',
+          padding: 'clamp(1.5rem, 3vw, 2rem)',
           maxWidth: '1200px',
           margin: '0 auto',
-          opacity
+          width: '100%',
+          opacity,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '70vh'
         }}>
+          {/* Main Title */}
           <motion.h1
             style={{
-              fontSize: 'clamp(3rem, 8vw, 6rem)',
-              fontWeight: 'bold',
-              lineHeight: 1.2,
+              fontSize: 'clamp(3.5rem, 12vw, 8rem)',
+              fontWeight: '900',
+              lineHeight: 1.1,
               color: '#ffffff',
-              marginBottom: '3rem'
+              marginBottom: 'clamp(2rem, 4vw, 3rem)',
+              letterSpacing: '-0.02em',
+              textTransform: 'uppercase'
             }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.6, 0.05, 0.01, 0.9] }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.6, 0.05, 0.01, 0.9] }}
           >
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              We share{' '}
-            </motion.span>
-            <motion.span
-              style={{ color: '#EB0028' }}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              ideas
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
-            >
-              {' '}worth spreading
-            </motion.span>
+            UNTETHERED
           </motion.h1>
 
+          {/* Event Date */}
           <motion.div
             style={{
-              position: 'absolute',
-              bottom: '3rem',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '0.5rem'
+              color: '#ffffff',
+              fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)',
+              fontWeight: '500',
+              marginBottom: 'clamp(0.75rem, 1.5vw, 1rem)',
+              letterSpacing: '0.05em'
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
+            transition={{ duration: 1, delay: 0.6 }}
           >
-            <motion.div
+            3rd May 2025
+          </motion.div>
+
+          {/* Event Location */}
+          <motion.div
+            style={{
+              color: 'rgba(255, 255, 255, 0.85)',
+              fontSize: 'clamp(1rem, 2vw, 1.3rem)',
+              fontWeight: '400',
+              lineHeight: 1.5,
+              marginBottom: 'clamp(2.5rem, 5vw, 4rem)'
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+          >
+            Jaypee University of Engineering & Technology, Guna
+          </motion.div>
+
+          {/* Call to Action Buttons */}
+          <motion.div
+            style={{
+              display: 'flex',
+              gap: 'clamp(1rem, 2.5vw, 1.5rem)',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginBottom: 'clamp(3rem, 6vw, 5rem)',
+              flexWrap: 'wrap'
+            }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+          >
+            <motion.a
+              href="/registration"
               style={{
-                width: '30px',
-                height: '50px',
-                border: '2px solid rgba(255, 255, 255, 0.5)',
-                borderRadius: '20px',
-                display: 'flex',
-                justifyContent: 'center',
-                padding: '8px 0'
+                backgroundColor: '#EB0028',
+                color: '#ffffff',
+                padding: 'clamp(0.9rem, 2vw, 1.1rem) clamp(2rem, 4vw, 3rem)',
+                borderRadius: '50px',
+                fontWeight: '600',
+                fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)',
+                textDecoration: 'none',
+                display: 'inline-block',
+                border: 'none',
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                textAlign: 'center',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 4px 20px rgba(235, 0, 40, 0.4)',
+                letterSpacing: '0.02em'
               }}
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
+              whileHover={{ scale: 1.05, boxShadow: '0 6px 30px rgba(235, 0, 40, 0.6)' }}
+              whileTap={{ scale: 0.95 }}
             >
-              <motion.div style={{
-                width: '4px',
-                height: '8px',
-                background: '#EB0028',
-                borderRadius: '2px'
-              }} />
-            </motion.div>
+              Get Passes
+            </motion.a>
+            
+            <motion.a
+              href="/brochure.pdf"
+              download
+              style={{
+                backgroundColor: 'transparent',
+                color: '#ffffff',
+                padding: 'clamp(0.9rem, 2vw, 1.1rem) clamp(2rem, 4vw, 3rem)',
+                borderRadius: '50px',
+                fontWeight: '600',
+                fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)',
+                textDecoration: 'none',
+                display: 'inline-block',
+                border: '2px solid rgba(255, 255, 255, 0.3)',
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                textAlign: 'center',
+                transition: 'all 0.3s ease',
+                letterSpacing: '0.02em'
+              }}
+              whileHover={{ 
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                borderColor: 'rgba(255, 255, 255, 0.6)',
+                scale: 1.05
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Download Brochure
+            </motion.a>
+          </motion.div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          style={{
+            position: 'absolute',
+            bottom: 'clamp(1.5rem, 3vw, 2.5rem)',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '0.5rem',
+            zIndex: 3
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
+        >
+          <motion.div
+            style={{
+              width: 'clamp(22px, 3vw, 28px)',
+              height: 'clamp(38px, 5vw, 48px)',
+              border: '2px solid rgba(255, 255, 255, 0.5)',
+              borderRadius: '18px',
+              display: 'flex',
+              justifyContent: 'center',
+              padding: '7px 0'
+            }}
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+            <motion.div style={{
+              width: '3px',
+              height: '7px',
+              background: '#EB0028',
+              borderRadius: '2px'
+            }} />
           </motion.div>
         </motion.div>
 

@@ -5,9 +5,7 @@ import Hero from '@/components/Hero'
 import TedxInfo from '@/components/TedxInfo'
 import Events from '@/components/Events'
 import Talks from '@/components/Talks'
-import CardSlider from '@/components/CardSlider'
-import Sponsors from '@/components/Sponsors'
-import CallToAction from '@/components/CallToAction'
+// import Sponsors from '@/components/Sponsors'
 import Footer from '@/components/Footer'
 import CookieBanner from '@/components/CookieBanner'
 import { useEffect, useState } from 'react'
@@ -33,9 +31,7 @@ export default function Home() {
       <Hero />
       <Events />
       <Talks />
-      <CardSlider />
-      <Sponsors />
-      <CallToAction />
+      {/* <Sponsors /> */}
       <Footer />
       {showCookie && <CookieBanner onResponse={handleCookieResponse} />}
     </main>

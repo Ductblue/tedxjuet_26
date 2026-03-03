@@ -2,73 +2,297 @@
 
 import { motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import Image from 'next/image'
 import styles from './page.module.css'
+import { useState } from 'react'
+
+// Team member data structure
+const teamMembers = [
+  // Organization
+  {
+    id: 1,
+    name: "Pria Jha",
+    role: "Organizer",
+    department: "Organization",
+    bio: "Leading the TEDxJUET event with passion and dedication",
+    image: "/team/member1.jpg"
+  },
+  {
+    id: 2,
+    name: "Yash Parsal",
+    role: "Co Organizer",
+    department: "Organization",
+    bio: "Supporting event coordination and execution",
+    image: "/team/member2.jpg"
+  },
+  // Design Team
+  {
+    id: 3,
+    name: "Ajitesh Awasthi",
+    role: "Head Designing",
+    department: "Design",
+    bio: "Creating stunning visual experiences for TEDxJUET",
+    image: "/team/member3.jpg"
+  },
+  {
+    id: 4,
+    name: "Ashish Chhabra",
+    role: "Co Head Designing",
+    department: "Design",
+    bio: "Crafting creative designs and graphics",
+    image: "/team/member4.jpg"
+  },
+  {
+    id: 5,
+    name: "Mihika Jain",
+    role: "Co Head Designing",
+    department: "Design",
+    bio: "Bringing visual concepts to life",
+    image: "/team/member5.jpg"
+  },
+  {
+    id: 6,
+    name: "Kush Sharma",
+    role: "Co Head Designing",
+    department: "Design",
+    bio: "Ensuring design excellence across all touchpoints",
+    image: "/team/member6.jpg"
+  },
+  // Logistics Team
+  {
+    id: 7,
+    name: "Ritesh Mehta",
+    role: "Head Logistics",
+    department: "Logistics",
+    bio: "Managing event operations and logistics seamlessly",
+    image: "/team/member7.jpg"
+  },
+  {
+    id: 8,
+    name: "Yash Pathak",
+    role: "Co Head Logistics",
+    department: "Logistics",
+    bio: "Coordinating venue and operational requirements",
+    image: "/team/member8.jpg"
+  },
+  {
+    id: 9,
+    name: "Tanya Rathore",
+    role: "Co Head Logistics",
+    department: "Logistics",
+    bio: "Ensuring smooth event execution",
+    image: "/team/member9.jpg"
+  },
+  {
+    id: 10,
+    name: "Shreyansh Tripathi",
+    role: "Co Head Logistics",
+    department: "Logistics",
+    bio: "Managing logistics and coordination",
+    image: "/team/member10.jpg"
+  },
+  // Marketing Team
+  {
+    id: 11,
+    name: "Siddhi Jain",
+    role: "Head Marketing",
+    department: "Marketing",
+    bio: "Driving marketing strategies and campaigns",
+    image: "/team/member11.jpg"
+  },
+  {
+    id: 12,
+    name: "Yash Singhal",
+    role: "Co Head Marketing",
+    department: "Marketing",
+    bio: "Managing promotional activities and outreach",
+    image: "/team/member12.jpg"
+  },
+  // Sponsorship Team
+  {
+    id: 13,
+    name: "Shreyansh Mishra",
+    role: "Head Sponsorship",
+    department: "Sponsorship",
+    bio: "Building partnerships and securing sponsorships",
+    image: "/team/member13.jpg"
+  },
+  {
+    id: 14,
+    name: "Shivdev Shukla",
+    role: "Co Head Sponsorship",
+    department: "Sponsorship",
+    bio: "Managing sponsor relationships and collaborations",
+    image: "/team/member14.jpg"
+  },
+  // Hospitality Team
+  {
+    id: 15,
+    name: "Sejal Dubey",
+    role: "Head Hospitality",
+    department: "Hospitality",
+    bio: "Ensuring exceptional guest experiences",
+    image: "/team/member15.jpg"
+  },
+  {
+    id: 16,
+    name: "Vedika Shivhare",
+    role: "Co Head Hospitality",
+    department: "Hospitality",
+    bio: "Managing attendee comfort and satisfaction",
+    image: "/team/member16.jpg"
+  },
+  {
+    id: 17,
+    name: "Puru Asthana",
+    role: "Co Head Hospitality",
+    department: "Hospitality",
+    bio: "Coordinating hospitality services",
+    image: "/team/member17.jpg"
+  },
+  // Curation Team
+  {
+    id: 18,
+    name: "Unnati Mishra",
+    role: "Head Curation",
+    department: "Curation",
+    bio: "Curating impactful content and speaker lineup",
+    image: "/team/member18.jpg"
+  },
+  {
+    id: 19,
+    name: "Naitik Chitransh",
+    role: "Co Head Curation",
+    department: "Curation",
+    bio: "Managing content strategy and speaker selection",
+    image: "/team/member19.jpg"
+  },
+  {
+    id: 20,
+    name: "Pushkar Dubey",
+    role: "Co Head Curation",
+    department: "Curation",
+    bio: "Ensuring quality content and engaging talks",
+    image: "/team/member20.jpg"
+  }
+]
+
+const departments = [
+  "Organization",
+  "Design",
+  "Logistics",
+  "Marketing",
+  "Sponsorship",
+  "Hospitality",
+  "Curation"
+]
 
 export default function TeamPage() {
-  const teamMembers = Array.from({ length: 20 }, (_, i) => ({
-    id: i + 1,
-    name: `Team Member ${i + 1}`,
-    role: 'TEDxJUET Team',
-    linkedin: 'https://linkedin.com/in/example' // Replace with actual LinkedIn URLs
-  }))
+  const [selectedDepartment, setSelectedDepartment] = useState<string | null>(null)
+  const [hoveredMember, setHoveredMember] = useState<number | null>(null)
+
+  const filteredMembers = selectedDepartment
+    ? teamMembers.filter(m => m.department === selectedDepartment)
+    : teamMembers
 
   return (
-    <main>
+    <>
       <Navbar />
-      <section className={styles.section}>
-        <div className={styles.container}>
-          <motion.h1
-            className={styles.heading}
-            initial={{ opacity: 0, y: -50 }}
+      <main className={styles.container}>
+        {/* Hero Section */}
+        <section className={styles.hero}>
+          <motion.div
+            className={styles.heroContent}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Our Team
-          </motion.h1>
-          <motion.p
-            className={styles.subtitle}
+            <h1 className={styles.heroTitle}>Our Team</h1>
+            <p className={styles.heroSubtitle}>
+              Meet the passionate individuals driving TEDxJUET 2025 forward with dedication and innovation
+            </p>
+          </motion.div>
+        </section>
+
+        {/* Department Filter */}
+        <section className={styles.filterSection}>
+          <motion.div
+            className={styles.departmentFilters}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Meet the passionate individuals behind TEDxJUET
-          </motion.p>
+            <button
+              className={`${styles.departmentButton} ${!selectedDepartment ? styles.active : ''}`}
+              onClick={() => setSelectedDepartment(null)}
+            >
+              All Members
+            </button>
+            {departments.map((department, index) => (
+              <motion.button
+                key={department}
+                className={`${styles.departmentButton} ${selectedDepartment === department ? styles.active : ''}`}
+                onClick={() => setSelectedDepartment(department)}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 * index }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {department}
+              </motion.button>
+            ))}
+          </motion.div>
+        </section>
 
-          <div className={styles.cardsGrid}>
-            {teamMembers.map((member, index) => (
+        {/* Team Members Grid */}
+        <section className={styles.membersSection}>
+          <div className={styles.membersGrid}>
+            {filteredMembers.map((member, index) => (
               <motion.div
                 key={member.id}
-                className={styles.card}
-                initial={{ opacity: 0, y: 20 }}
+                className={styles.memberCard}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10, boxShadow: '0 10px 30px rgba(235, 0, 40, 0.3)' }}
+                onMouseEnter={() => setHoveredMember(member.id)}
+                onMouseLeave={() => setHoveredMember(null)}
               >
-                <div className={styles.cardImage}></div>
-                <div className={styles.cardContent}>
-                  <h3 className={styles.cardName}>{member.name}</h3>
-                  <div className={styles.roleWithLink}>
-                    <p className={styles.cardRole}>{member.role}</p>
-                    <a 
-                      href={member.linkedin} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className={styles.linkedinLink}
-                      title="LinkedIn Profile"
-                    >
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.736 0-9.646h3.554v1.348c.429-.646 1.196-1.587 2.905-1.587 2.121 0 3.71 1.328 3.71 4.182v5.703zM5.337 8.855c-1.144 0-1.915-.762-1.915-1.715 0-.955.77-1.715 1.921-1.715 1.157 0 1.92.759 1.92 1.715 0 .953-.763 1.715-1.926 1.715zm1.581 11.597H3.715V9.505h3.203v10.947zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                <div className={styles.imageContainer}>
+                  <div className={styles.imagePlaceholder}>
+                    <div className={styles.placeholderIcon}>
+                      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <circle cx="12" cy="7" r="4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
-                    </a>
+                    </div>
                   </div>
+                  <motion.div
+                    className={styles.overlay}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: hoveredMember === member.id ? 1 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className={styles.overlayContent}>
+                      <div className={styles.roleTag}>
+                        <span className={styles.tag}>{member.role}</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+                
+                <div className={styles.memberInfo}>
+                  <span className={styles.department}>{member.department}</span>
+                  <h3 className={styles.memberName}>{member.name}</h3>
+                  <p className={styles.memberRole}>{member.role}</p>
+                  <p className={styles.memberBio}>{member.bio}</p>
                 </div>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-      <Footer />
-    </main>
+        </section>
+
+      </main>
+    </>
   )
 }

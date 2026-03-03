@@ -64,7 +64,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.departmentFilters {
+.themeFilters {
   display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
@@ -72,7 +72,7 @@
   max-width: 1400px;
 }
 
-.departmentButton {
+.themeButton {
   padding: 0.4rem 1rem;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -86,21 +86,21 @@
   letter-spacing: 0.02em;
 }
 
-.departmentButton:hover {
+.themeButton:hover {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.4);
   color: #ffffff;
 }
 
-.departmentButton.active {
+.themeButton.active {
   background: #EB0028;
   border-color: #EB0028;
   color: #ffffff;
   box-shadow: 0 4px 20px rgba(235, 0, 40, 0.4);
 }
 
-/* Members Section */
-.membersSection {
+/* Speakers Section */
+.speakersSection {
   padding: 1rem 2rem 3rem 2rem;
   max-width: 1600px;
   margin: 0 auto;
@@ -109,24 +109,24 @@
   overflow-x: hidden;
 }
 
-.membersSection::-webkit-scrollbar {
+.speakersSection::-webkit-scrollbar {
   width: 6px;
 }
 
-.membersSection::-webkit-scrollbar-track {
+.speakersSection::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
 }
 
-.membersSection::-webkit-scrollbar-thumb {
+.speakersSection::-webkit-scrollbar-thumb {
   background: rgba(235, 0, 40, 0.5);
   border-radius: 10px;
 }
 
-.membersSection::-webkit-scrollbar-thumb:hover {
+.speakersSection::-webkit-scrollbar-thumb:hover {
   background: rgba(235, 0, 40, 0.7);
 }
 
-.membersGrid {
+.speakersGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
@@ -134,8 +134,8 @@
   padding-bottom: 2rem;
 }
 
-/* Member Card */
-.memberCard {
+/* Speaker Card */
+.speakerCard {
   background: rgba(20, 20, 20, 0.6);
   border-radius: 12px;
   overflow: hidden;
@@ -148,7 +148,7 @@
   flex-direction: column;
 }
 
-.memberCard:hover {
+.speakerCard:hover {
   transform: translateY(-5px);
   border-color: rgba(235, 0, 40, 0.3);
   box-shadow: 0 10px 30px rgba(235, 0, 40, 0.2);
@@ -193,13 +193,13 @@
   width: 100%;
 }
 
-.roleTag {
+.topics {
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem;
 }
 
-.tag {
+.topic {
   padding: 0.2rem 0.5rem;
   background: rgba(235, 0, 40, 0.9);
   color: #ffffff;
@@ -209,14 +209,14 @@
   letter-spacing: 0.03em;
 }
 
-.memberInfo {
+.speakerInfo {
   padding: 0.8rem;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.department {
+.theme {
   display: inline-block;
   padding: 0.25rem 0.65rem;
   background: rgba(235, 0, 40, 0.15);
@@ -227,10 +227,9 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.4rem;
-  max-width: fit-content;
 }
 
-.memberName {
+.speakerName {
   font-size: 0.95rem;
   font-weight: 700;
   color: #ffffff;
@@ -238,14 +237,14 @@
   letter-spacing: -0.01em;
 }
 
-.memberRole {
+.speakerTitle {
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.4rem;
   font-weight: 500;
 }
 
-.memberBio {
+.speakerBio {
   font-size: 0.7rem;
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.5;
@@ -254,20 +253,20 @@
 
 /* Responsive Design */
 @media (max-width: 1400px) {
-  .membersGrid {
+  .speakersGrid {
     grid-template-columns: repeat(4, 1fr);
     padding-bottom: 2rem;
   }
 }
 
 @media (max-width: 1024px) {
-  .membersGrid {
+  .speakersGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 0.9rem;
     padding-bottom: 1.75rem;
   }
 
-  .membersSection {
+  .speakersSection {
     padding: 1rem 1.5rem 2.5rem 1.5rem;
   }
 }
@@ -283,43 +282,43 @@
     padding: 0.5rem 1.5rem;
   }
 
-  .departmentFilters {
+  .themeFilters {
     gap: 0.4rem;
   }
 
-  .departmentButton {
+  .themeButton {
     padding: 0.35rem 0.8rem;
     font-size: 0.7rem;
   }
 
-  .membersSection {
+  .speakersSection {
     padding: 1rem 1.5rem 2rem 1.5rem;
     height: calc(100vh - 10vh - 60px - 50px);
   }
 
-  .membersGrid {
+  .speakersGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.8rem;
     padding-bottom: 1.5rem;
   }
 
-  .memberCard {
+  .speakerCard {
     border-radius: 10px;
   }
 
-  .memberInfo {
+  .speakerInfo {
     padding: 0.6rem;
   }
 
-  .memberName {
+  .speakerName {
     font-size: 0.85rem;
   }
 
-  .memberRole {
+  .speakerTitle {
     font-size: 0.7rem;
   }
 
-  .memberBio {
+  .speakerBio {
     font-size: 0.65rem;
   }
 }
@@ -343,31 +342,31 @@
     padding: 0.4rem 1rem;
   }
 
-  .departmentButton {
+  .themeButton {
     padding: 0.3rem 0.6rem;
     font-size: 0.65rem;
   }
 
-  .membersSection {
+  .speakersSection {
     padding: 0.8rem 0.8rem 1.5rem 0.8rem;
     height: calc(100vh - 8vh - 55px - 45px);
   }
 
-  .membersGrid {
+  .speakersGrid {
     gap: 0.6rem;
     grid-template-columns: 1fr;
     padding-bottom: 1rem;
   }
 
-  .memberInfo {
+  .speakerInfo {
     padding: 0.5rem;
   }
 
-  .memberName {
+  .speakerName {
     font-size: 0.8rem;
   }
 
-  .memberBio {
+  .speakerBio {
     font-size: 0.65rem;
   }
 }
