@@ -11,7 +11,7 @@ export default function ContactPage() {
 
   const contacts = [
     { name: 'Shreyansh Mishra', phone: '+91 83198 70227' },
-    { name: 'Yash Parasai', phone: '+91 62637 59534' },
+    { name: 'Yash Parsai', phone: '+91 62637 59534' },
     { name: 'Pria Jha', phone: '+91 96103 73967' },
     { name: 'Email', phone: 'tedx@juetguna.in', isEmail: true }
   ]
@@ -57,30 +57,28 @@ export default function ContactPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className={styles.contactSection}>
-                <h3 className={styles.contactHeading}>Contact Us</h3>
-                <div className={styles.contactsList}>
-                  {contacts.map((contact, index) => (
-                    <motion.div
-                      key={index}
-                      className={styles.contactItem}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
-                    >
-                      <div className={styles.contactName}>{contact.name}</div>
-                      {contact.isEmail ? (
-                        <a href={`mailto:${contact.phone}`} className={styles.contactPhone}>
-                          {contact.phone}
-                        </a>
-                      ) : (
-                        <a href={`tel:${contact.phone}`} className={styles.contactPhone}>
-                          {contact.phone}
-                        </a>
-                      )}
-                    </motion.div>
-                  ))}
-                </div>
+              <h2 className={styles.sectionHeading}>Contact Us</h2>
+              <div className={styles.contactsList}>
+                {contacts.map((contact, index) => (
+                  <motion.div
+                    key={index}
+                    className={styles.contactItem}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
+                  >
+                    <div className={styles.contactName}>{contact.name}</div>
+                    {contact.isEmail ? (
+                      <a href={`mailto:${contact.phone}`} className={styles.contactPhone}>
+                        {contact.phone}
+                      </a>
+                    ) : (
+                      <a href={`tel:${contact.phone}`} className={styles.contactPhone}>
+                        {contact.phone}
+                      </a>
+                    )}
+                  </motion.div>
+                ))}
               </div>
 
               <div className={styles.followUsSection}>
