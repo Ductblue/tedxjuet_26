@@ -19,7 +19,7 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: "Yash Parsal",
+    name: "Yash Parsai",
     role: "Co Organizer",
     department: "Organization",
     bio: "Supporting event coordination and execution",
@@ -129,7 +129,7 @@ const teamMembers = [
   // Hospitality Team
   {
     id: 15,
-    name: "Sejal Dubey",
+    name: "Shejal Dubey",
     role: "Head Hospitality",
     department: "Hospitality",
     bio: "Ensuring exceptional guest experiences",
@@ -180,13 +180,13 @@ const teamMembers = [
 
 const departments = [
   "Organization",
+  "Development",
   "Design",
   "Logistics",
   "Marketing",
   "Sponsorship",
   "Hospitality",
-  "Curation",
-  "Development"
+  "Curation"
 ]
 
 export default function TeamPage() {
