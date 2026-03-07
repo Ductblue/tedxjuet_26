@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import styles from './Hero.module.css'
 
 export default function Hero() {
   const ref = useRef(null)
@@ -16,16 +17,7 @@ export default function Hero() {
 
   return (
     <>
-      <section ref={ref} style={{
-        position: 'relative',
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        overflow: 'hidden',
-        background: '#000000',
-        paddingTop: '80px'
-      }}>
+      <section ref={ref} className={styles.hero}>
         <motion.div style={{
           position: 'absolute',
           top: 0,

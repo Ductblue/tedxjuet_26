@@ -1,6 +1,7 @@
 .section {
   background: #000000;
   padding: 80px 0;
+  position: relative;
 }
 
 .container {

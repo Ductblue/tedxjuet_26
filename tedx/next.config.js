@@ -14,14 +14,12 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif'],
   },
   compress: true, // Enable gzip compression
-  swcMinify: true, // Use SWC for minification
   poweredByHeader: false,
   reactStrictMode: true,
   
   // Production optimizations
   experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['framer-motion', '@react-three/fiber', '@react-three/drei'],
+    optimizePackageImports: ['framer-motion'],
   },
 }
 

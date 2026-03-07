@@ -1,8 +1,7 @@
 .container {
-  height: 100vh;
+  min-height: 100vh;
   background: #000000;
   position: relative;
-  overflow: hidden;
 }
 
 /* Hero Section */
@@ -56,11 +55,11 @@
   padding: 0.6rem 2rem;
   display: flex;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
   position: sticky;
-  top: 90px;
-  z-index: 100;
+  top: 70px;
+  z-index: 10;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -104,26 +103,7 @@
   padding: 1rem 2rem 3rem 2rem;
   max-width: 1600px;
   margin: 0 auto;
-  height: calc(100vh - 12vh - 60px - 65px);
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.membersSection::-webkit-scrollbar {
-  width: 6px;
-}
-
-.membersSection::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.membersSection::-webkit-scrollbar-thumb {
-  background: rgba(235, 0, 40, 0.5);
-  border-radius: 10px;
-}
-
-.membersSection::-webkit-scrollbar-thumb:hover {
-  background: rgba(235, 0, 40, 0.7);
+  min-height: 60vh;
 }
 
 .membersGrid {
@@ -269,6 +249,7 @@
 
   .membersSection {
     padding: 1rem 1.5rem 2.5rem 1.5rem;
+    min-height: 50vh;
   }
 }
 
@@ -279,7 +260,7 @@
   }
 
   .filterSection {
-    top: 80px;
+    top: 60px;
     padding: 0.5rem 1.5rem;
   }
 
@@ -294,7 +275,7 @@
 
   .membersSection {
     padding: 1rem 1.5rem 2rem 1.5rem;
-    height: calc(100vh - 10vh - 60px - 50px);
+    min-height: 45vh;
   }
 
   .membersGrid {
@@ -339,7 +320,7 @@
   }
 
   .filterSection {
-    top: 75px;
+    top: 55px;
     padding: 0.4rem 1rem;
   }
 
@@ -350,7 +331,7 @@
 
   .membersSection {
     padding: 0.8rem 0.8rem 1.5rem 0.8rem;
-    height: calc(100vh - 8vh - 55px - 45px);
+    min-height: 40vh;
   }
 
   .membersGrid {
