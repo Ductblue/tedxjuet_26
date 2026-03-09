@@ -11,105 +11,92 @@ const speakers = [
   // Innovation & Technology Theme
   {
     id: 1,
-    name: "Dr. Rajesh Kumar",
-    title: "AI Research Scientist",
+    name: "Ashok Kumar Sharma",
+    title: "Tech Expert & Alumni",
     theme: "Innovation & Technology",
-    bio: "Leading breakthrough research in artificial intelligence and machine learning applications",
+    bio: "An inspiring alumnus who has carved a path in the tech world, sharing insights on innovation and building a career in technology.",
     image: "/speakers/speaker1.jpg",
-    topics: ["AI", "Machine Learning", "Future Tech"]
+    topics: ["Technology", "Alumni Journey", "Innovation"]
   },
   {
     id: 2,
-    name: "Priya Sharma",
-    title: "Tech Entrepreneur",
+    name: "Farooq Chisty",
+    title: "AI Generalist & Tech Expert",
     theme: "Innovation & Technology",
-    bio: "Founder of multiple successful tech startups revolutionizing digital solutions",
+    bio: "A versatile AI generalist and tech expert driving conversations around artificial intelligence, its real-world applications, and the future of technology.",
     image: "/speakers/speaker2.jpg",
-    topics: ["Startups", "Innovation", "Digital Transformation"]
+    topics: ["Artificial Intelligence", "Technology"]
+  },
+  {
+    id: 3,
+    name: "Vishal Bachchas",
+    title: "Tech Content Creator",
+    theme: "Innovation & Technology",
+    bio: "Bridging the gap between technology and storytelling, making complex tech concepts accessible to a wider audience through creative content.",
+    image: "/speakers/speaker3.jpg",
+    topics: ["Content Creation", "Technology", "Digital Media"]
   },
   // Social Impact Theme
   {
-    id: 3,
-    name: "Arun Mehta",
-    title: "Social Activist",
-    theme: "Social Impact",
-    bio: "Championing grassroots initiatives for sustainable community development",
-    image: "/speakers/speaker3.jpg",
-    topics: ["Community", "Sustainability", "Social Change"]
-  },
-  {
     id: 4,
-    name: "Neha Kapoor",
-    title: "NGO Director",
+    name: "Sarvgya Soni",
+    title: "Alumni & Queer Community Voice",
     theme: "Social Impact",
-    bio: "Leading transformative programs for education and women empowerment",
+    bio: "An alumni championing queer rights and inclusive communities, pushing for a world where everyone belongs.",
     image: "/speakers/speaker4.jpg",
-    topics: ["Education", "Empowerment", "Leadership"]
+    topics: ["LGBTQ+ Rights", "Inclusion", "Social Change"]
   },
-  // Arts & Creativity Theme
   {
     id: 5,
-    name: "Vikram Singh",
-    title: "Film Director",
-    theme: "Arts & Creativity",
-    bio: "Award-winning filmmaker exploring human stories through cinematic excellence",
+    name: "Vidhi",
+    title: "Content Creator & Environmentalist",
+    theme: "Social Impact",
+    bio: "Harnessing the power of digital content to raise awareness about environmental issues and inspire sustainable living.",
     image: "/speakers/speaker5.jpg",
-    topics: ["Cinema", "Storytelling", "Visual Arts"]
+    topics: ["Environment", "Sustainability", "Content Creation"]
   },
   {
     id: 6,
-    name: "Ananya Desai",
-    title: "Contemporary Artist",
-    theme: "Arts & Creativity",
-    bio: "Breaking boundaries in contemporary art with innovative installations",
+    name: "Alok Gaud",
+    title: "Human Values",
+    theme: "Social Impact",
+    bio: "A firm believer in the transformative power of human values, inspiring ethical living and compassionate communities.",
     image: "/speakers/speaker6.jpg",
-    topics: ["Art", "Innovation", "Expression"]
+    topics: ["Human Values", "Ethics", "Community"]
   },
-  // Health & Wellness Theme
   {
     id: 7,
-    name: "Dr. Arjun Patel",
-    title: "Neuroscientist",
-    theme: "Health & Wellness",
-    bio: "Pioneering research on mind-body connection and mental health",
+    name: "Inderjeet Bhagat",
+    title: "Content Creator & Tech Enthusiast",
+    theme: "Innovation & Technology",
+    bio: "Merging technology and creativity to craft compelling narratives that inspire and entertain audiences across platforms.",
     image: "/speakers/speaker7.jpg",
-    topics: ["Mental Health", "Neuroscience", "Wellness"]
-  },
-  {
-    id: 8,
-    name: "Kavya Reddy",
-    title: "Wellness Coach",
-    theme: "Health & Wellness",
-    bio: "Empowering individuals to achieve holistic health and balance",
-    image: "/speakers/speaker8.jpg",
-    topics: ["Fitness", "Mindfulness", "Lifestyle"]
+    topics: ["Content Creation", "Digital Storytelling", "Technology"]
   },
   // Entrepreneurship Theme
   {
-    id: 9,
-    name: "Rohan Verma",
-    title: "Serial Entrepreneur",
+    id: 8,
+    name: "Harsh Vandana Sharma",
+    title: "Educator, Tech & Entrepreneur",
     theme: "Entrepreneurship",
-    bio: "Building impactful ventures that solve real-world problems",
-    image: "/speakers/speaker9.jpg",
-    topics: ["Business", "Innovation", "Growth"]
+    bio: "A multifaceted leader blending education, technology, and entrepreneurship to build ventures that create lasting impact.",
+    image: "/speakers/speaker8.jpg",
+    topics: ["Education", "Technology", "Entrepreneurship"]
   },
   {
-    id: 10,
-    name: "Ishita Joshi",
-    title: "Startup Mentor",
+    id: 9,
+    name: "Barkha Agrawal",
+    title: "Entrepreneur & Logistics Innovator",
     theme: "Entrepreneurship",
-    bio: "Guiding the next generation of entrepreneurs to success",
-    image: "/speakers/speaker10.jpg",
-    topics: ["Mentorship", "Strategy", "Scaling"]
+    bio: "Building impactful businesses at the intersection of entrepreneurship and logistics, redefining supply chain solutions.",
+    image: "/speakers/speaker9.jpg",
+    topics: ["Entrepreneurship", "Logistics", "Business Innovation"]
   }
 ]
 
 const themes = [
   "Innovation & Technology",
   "Social Impact",
-  "Arts & Creativity",
-  "Health & Wellness",
   "Entrepreneurship"
 ]
 
@@ -188,8 +175,8 @@ export default function SpeakersPage() {
                   <div className={styles.imagePlaceholder}>
                     <div className={styles.placeholderIcon}>
                       <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <circle cx="12" cy="7" r="4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <circle cx="12" cy="7" r="4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>
                   </div>
@@ -208,7 +195,7 @@ export default function SpeakersPage() {
                     </div>
                   </motion.div>
                 </div>
-                
+
                 <div className={styles.speakerInfo}>
                   <span className={styles.theme}>{speaker.theme}</span>
                   <h3 className={styles.speakerName}>{speaker.name}</h3>

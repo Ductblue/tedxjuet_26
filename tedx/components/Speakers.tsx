@@ -5,64 +5,64 @@ import { useRef } from 'react'
 import styles from './Speakers.module.css'
 
 const speakers = [
-  { 
-    id: 1, 
-    name: 'Arpit Dwivedi', 
+  {
+    id: 1,
+    name: 'Arpit Dwivedi',
     description: 'Science Communicator and Rationalist',
     image: '/speakers/speaker1.jpg'
   },
-  { 
-    id: 2, 
-    name: 'Farooq Chisty', 
+  {
+    id: 2,
+    name: 'Farooq Chisty',
     description: 'Entrepreneur',
     image: '/speakers/speaker2.jpg'
   },
-  { 
-    id: 3, 
-    name: 'Dr. Gajendra Purohit', 
+  {
+    id: 3,
+    name: 'Dr. Gajendra Purohit',
     description: 'YouTuber, Mathematics Educator, Professor',
     image: '/speakers/speaker3.jpg'
   },
-  { 
-    id: 4, 
-    name: 'Mohit Sharma', 
+  {
+    id: 4,
+    name: 'Mohit Sharma',
     description: 'Entrepreneur, Founder & CEO at Blacklisted',
     image: '/speakers/speaker4.jpg'
   },
-  { 
-    id: 5, 
-    name: 'Charvi Jain', 
+  {
+    id: 5,
+    name: 'Charvi Jain',
     description: 'Psychologist, Entrepreneur',
     image: '/speakers/speaker5.jpg'
   },
-  { 
-    id: 6, 
-    name: 'Babulal Dahiya', 
+  {
+    id: 6,
+    name: 'Babulal Dahiya',
     description: 'Farmer, Poet, and Conversationist',
     image: '/speakers/speaker6.jpg'
   },
-  { 
-    id: 7, 
-    name: 'Speaker 7', 
-    description: 'Description for Speaker 7',
+  {
+    id: 7,
+    name: 'Sarvgya Soni',
+    description: 'LGBTQ+ Advocate & Alumni',
     image: '/speakers/speaker7.jpg'
   },
-  { 
-    id: 8, 
-    name: 'Speaker 8', 
-    description: 'Description for Speaker 8',
+  {
+    id: 8,
+    name: 'Harsh Vandana Sharma',
+    description: 'Educator, Tech & Entrepreneur',
     image: '/speakers/speaker8.jpg'
   },
-  { 
-    id: 9, 
-    name: 'Speaker 9', 
-    description: 'Description for Speaker 9',
+  {
+    id: 9,
+    name: 'Alok Gaud',
+    description: 'Human Values Advocate',
     image: '/speakers/speaker9.jpg'
   },
-  { 
-    id: 10, 
-    name: 'Speaker 10', 
-    description: 'Description for Speaker 10',
+  {
+    id: 10,
+    name: 'Barkha Agrawal',
+    description: 'Entrepreneur & Logistics Innovator',
     image: '/speakers/speaker10.jpg'
   },
 ]
@@ -104,8 +104,8 @@ export default function Speakers() {
               transition={{ duration: 0.5, delay: index * 0.05 }}
             >
               <div className={styles.imageWrapper}>
-                <img 
-                  src={speaker.image} 
+                <img
+                  src={speaker.image}
                   alt={speaker.name}
                   className={styles.image}
                 />

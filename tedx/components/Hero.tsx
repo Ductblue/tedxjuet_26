@@ -6,7 +6,7 @@ import styles from './Hero.module.css'
 
 export default function Hero() {
   const ref = useRef(null)
-  
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start']
@@ -43,7 +43,7 @@ export default function Hero() {
           >
             <source src="/webm/try.webm" type="video/webm" />
           </video>
-          
+
           {/* Dark Overlay for Text Readability */}
           <div style={{
             position: 'absolute',
@@ -79,13 +79,14 @@ export default function Hero() {
           {/* Main Title */}
           <motion.h1
             style={{
-              fontSize: 'clamp(3.5rem, 12vw, 8rem)',
+              fontSize: 'clamp(2.8rem, 13vw, 8rem)',
               fontWeight: '900',
               lineHeight: 1.1,
               color: '#ffffff',
               marginBottom: 'clamp(2rem, 4vw, 3rem)',
               letterSpacing: '-0.02em',
-              textTransform: 'uppercase'
+              textTransform: 'uppercase',
+              whiteSpace: 'nowrap'
             }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -164,7 +165,7 @@ export default function Hero() {
             >
               Get Passes
             </motion.a>
-            
+
             <motion.a
               href="/brochure/TEDxJUET Final Broucher.pdf"
               download
@@ -184,7 +185,7 @@ export default function Hero() {
                 transition: 'all 0.3s ease',
                 letterSpacing: '0.02em'
               }}
-              whileHover={{ 
+              whileHover={{
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 borderColor: 'rgba(255, 255, 255, 0.6)',
                 scale: 1.05

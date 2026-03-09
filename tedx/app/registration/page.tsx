@@ -68,7 +68,7 @@ export default function RegistrationPage() {
       if (!response.ok) {
         throw new Error(data.error || 'Registration failed')
       }
-      
+
       setSubmitted(true)
       setFormData({
         name: '',
@@ -101,7 +101,7 @@ export default function RegistrationPage() {
             transition={{ duration: 0.8 }}
           >
             <div className={styles.logoSection}>
-              <motion.div 
+              <motion.div
                 className={styles.logo}
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -135,7 +135,7 @@ export default function RegistrationPage() {
               <div className={styles.divider}>|</div>
               <div className={styles.detailItem}>
                 <MapPin className={styles.icon} size={18} />
-                <span>JUET's MultiPurpose Hall</span>
+                <span>JUET Tagore Hall</span>
               </div>
             </motion.div>
           </motion.div>
@@ -148,7 +148,7 @@ export default function RegistrationPage() {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <h2 className={styles.formTitle}>Register for the Event</h2>
-            
+
             {submitted ? (
               <motion.div
                 className={styles.successMessage}

@@ -8,6 +8,23 @@ import { useState } from 'react'
 
 // Team member data structure
 const teamMembers = [
+  // Faculty Advisors
+  {
+    id: -1,
+    name: "Dr. Divya Jain",
+    role: "Faculty Advisor",
+    department: "Faculty Advisor",
+    bio: "Faculty Advisor for TEDxJUET, guiding the team with expertise and mentorship",
+    image: "/team/faculty1.jpg"
+  },
+  {
+    id: 0,
+    name: "Dr. KB Meena",
+    role: "Co Faculty Advisor",
+    department: "Faculty Advisor",
+    bio: "Co Faculty Advisor supporting the TEDxJUET team with valuable guidance",
+    image: "/team/faculty2.jpg"
+  },
   // Organization
   {
     id: 1,
@@ -179,6 +196,7 @@ const teamMembers = [
 ]
 
 const departments = [
+  "Faculty Advisor",
   "Organization",
   "Development",
   "Design",
@@ -196,20 +214,20 @@ export default function TeamPage() {
   // Filter and sort members with exception for Marketing tab
   const filteredMembers = selectedDepartment
     ? teamMembers
-        .filter(m => m.department.includes(selectedDepartment))
-        .sort((a, b) => {
-          // Exception: For Marketing and Logistics tabs, prioritize members with single department
-          if (selectedDepartment === 'Marketing' || selectedDepartment === 'Logistics') {
-            const aIsPrimary = a.department === selectedDepartment
-            const bIsPrimary = b.department === selectedDepartment
-            
-            if (aIsPrimary && !bIsPrimary) return -1
-            if (!aIsPrimary && bIsPrimary) return 1
-          }
-          
-          // For all other cases, maintain original order by id
-          return a.id - b.id
-        })
+      .filter(m => m.department.includes(selectedDepartment))
+      .sort((a, b) => {
+        // Exception: For Marketing and Logistics tabs, prioritize members with single department
+        if (selectedDepartment === 'Marketing' || selectedDepartment === 'Logistics') {
+          const aIsPrimary = a.department === selectedDepartment
+          const bIsPrimary = b.department === selectedDepartment
+
+          if (aIsPrimary && !bIsPrimary) return -1
+          if (!aIsPrimary && bIsPrimary) return 1
+        }
+
+        // For all other cases, maintain original order by id
+        return a.id - b.id
+      })
     : teamMembers
 
   return (
@@ -279,8 +297,8 @@ export default function TeamPage() {
                   <div className={styles.imagePlaceholder}>
                     <div className={styles.placeholderIcon}>
                       <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <circle cx="12" cy="7" r="4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <circle cx="12" cy="7" r="4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>
                   </div>
@@ -297,7 +315,7 @@ export default function TeamPage() {
                     </div>
                   </motion.div>
                 </div>
-                
+
                 <div className={styles.memberInfo}>
                   <span className={styles.department}>{member.department}</span>
                   <h3 className={styles.memberName}>{member.name}</h3>
