@@ -12,85 +12,85 @@ const speakers = [
   {
     id: 1,
     name: "Ashok Kumar Sharma",
-    title: "Tech Expert & Alumni",
+    title: "Scientist/Engineer-SF, ISRO-ISTRAC",
     theme: "Innovation & Technology",
-    bio: "An inspiring alumnus who has carved a path in the tech world, sharing insights on innovation and building a career in technology.",
+    bio: "A scientist and engineer at ISRO-ISTRAC, bringing firsthand experience from India's space research to share insights on science, technology, and innovation.",
     image: "/speakers/speaker1.jpg",
-    topics: ["Technology", "Alumni Journey", "Innovation"]
+    topics: ["Space Technology", "Engineering", "ISRO"]
   },
   {
     id: 2,
     name: "Farooq Chisty",
-    title: "AI Generalist & Tech Expert",
+    title: "Founder, Zo Labs",
     theme: "Innovation & Technology",
-    bio: "A versatile AI generalist and tech expert driving conversations around artificial intelligence, its real-world applications, and the future of technology.",
+    bio: "Founder of Zo Labs, driving conversations around artificial intelligence, its real-world applications, and the future of technology.",
     image: "/speakers/speaker2.jpg",
-    topics: ["Artificial Intelligence", "Technology"]
+    topics: ["Artificial Intelligence", "Technology", "Startups"]
   },
   {
     id: 3,
     name: "Vishal Bachchas",
-    title: "Tech Content Creator",
+    title: "Software Engineer at Google",
     theme: "Innovation & Technology",
-    bio: "Bridging the gap between technology and storytelling, making complex tech concepts accessible to a wider audience through creative content.",
+    bio: "A software engineer at Google, bridging the gap between big tech and the next generation of developers through content and mentorship.",
     image: "/speakers/speaker3.jpg",
-    topics: ["Content Creation", "Technology", "Digital Media"]
+    topics: ["Software Engineering", "Big Tech", "Technology"]
   },
   // Social Impact Theme
   {
     id: 4,
     name: "Sarvgya Soni",
-    title: "Alumni & Queer Community Voice",
+    title: "Alumni & LGBTQ Voice",
     theme: "Social Impact",
-    bio: "An alumni championing queer rights and inclusive communities, pushing for a world where everyone belongs.",
+    bio: "An alumni championing LGBTQ rights and inclusive communities, pushing for a world where everyone belongs.",
     image: "/speakers/speaker4.jpg",
-    topics: ["LGBTQ+ Rights", "Inclusion", "Social Change"]
+    topics: ["LGBTQ+", "Inclusion", "Social Change"]
   },
   {
     id: 5,
     name: "Vidhi",
-    title: "Content Creator & Environmentalist",
+    title: "Sustainable Living Influencer",
     theme: "Social Impact",
-    bio: "Harnessing the power of digital content to raise awareness about environmental issues and inspire sustainable living.",
+    bio: "A sustainable living influencer harnessing the power of digital content to raise awareness about environmental issues and inspire conscious lifestyles.",
     image: "/speakers/speaker5.jpg",
-    topics: ["Environment", "Sustainability", "Content Creation"]
+    topics: ["Sustainability", "Environment", "Lifestyle"]
   },
   {
     id: 6,
     name: "Alok Gaud",
-    title: "Human Values",
+    title: "Director, Jaypee Group of Companies",
     theme: "Social Impact",
-    bio: "A firm believer in the transformative power of human values, inspiring ethical living and compassionate communities.",
+    bio: "Director in the Jaypee Group of Companies, sharing perspectives on leadership, human values, and building organisations with purpose.",
     image: "/speakers/speaker6.jpg",
-    topics: ["Human Values", "Ethics", "Community"]
+    topics: ["Leadership", "Human Values", "Corporate Culture"]
   },
   {
     id: 7,
     name: "Inderjeet Bhagat",
-    title: "Content Creator & Tech Enthusiast",
+    title: "Software Engineer & Coding Educator",
     theme: "Innovation & Technology",
-    bio: "Merging technology and creativity to craft compelling narratives that inspire and entertain audiences across platforms.",
+    bio: "A software engineer and coding educator making technology accessible, empowering the next generation of developers through education and content.",
     image: "/speakers/speaker7.jpg",
-    topics: ["Content Creation", "Digital Storytelling", "Technology"]
+    topics: ["Software Engineering", "Coding Education", "Technology"]
   },
   // Entrepreneurship Theme
   {
     id: 8,
     name: "Harsh Vandana Sharma",
-    title: "Educator, Tech & Entrepreneur",
+    title: "Tech Educator, Creative Developer & Entrepreneur",
     theme: "Entrepreneurship",
-    bio: "A multifaceted leader blending education, technology, and entrepreneurship to build ventures that create lasting impact.",
+    bio: "A tech educator, creative developer, and entrepreneur building ventures that sit at the intersection of education, technology, and creative thinking.",
     image: "/speakers/speaker8.jpg",
     topics: ["Education", "Technology", "Entrepreneurship"]
   },
   {
     id: 9,
     name: "Barkha Agrawal",
-    title: "Entrepreneur & Logistics Innovator",
+    title: "Director, Jet Trade & Logistics",
     theme: "Entrepreneurship",
-    bio: "Building impactful businesses at the intersection of entrepreneurship and logistics, redefining supply chain solutions.",
+    bio: "Director of Jet Trade & Logistics, redefining supply chain solutions through entrepreneurship and strategic business innovation.",
     image: "/speakers/speaker9.jpg",
-    topics: ["Entrepreneurship", "Logistics", "Business Innovation"]
+    topics: ["Logistics", "Entrepreneurship", "Business"]
   }
 ]
 
