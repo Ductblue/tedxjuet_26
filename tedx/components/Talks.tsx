@@ -9,32 +9,32 @@ const talks = [
     id: 1,
     title: 'Save Me',
     speaker: 'KĒVENS',
-    image: '/img/talk1.JPG',
+    image: '/img/talk1.jpg',
     large: true
   },
   {
     id: 2,
     title: "The cost of ignoring women's health",
     speaker: 'SHEENA FRANKLIN',
-    image: '/img/talk2.JPG'
+    image: '/img/talk2.jpg'
   },
   {
     id: 3,
     title: 'AI, the Brain, and Our Future',
     speaker: 'DR. BEREN MILLIDGE',
-    image: '/img/talk3.JPG'
+    image: '/img/talk3.jpg'
   },
   {
     id: 4,
     title: 'How functional precision medicine could be the future of cancer care',
     speaker: 'DR. DIANA AZZAM',
-    image: '/img/talk4.JPG'
+    image: '/img/talk4.jpg'
   },
   {
     id: 5,
     title: 'Breaking Down Barriers for Children with ADHD',
     speaker: 'DR. KATIE HART',
-    image: '/img/talk5.JPG'
+    image: '/img/talk5.jpg'
   },
 ]
 
