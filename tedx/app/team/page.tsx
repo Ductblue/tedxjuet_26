@@ -15,7 +15,7 @@ const teamMembers = [
     role: "Faculty Advisor",
     department: "Faculty Advisor",
     bio: "Faculty Advisor for TEDxJUET, guiding the team with expertise and mentorship",
-    image: "/team/faculty1.jpg"
+    image: "/team/member-1.jpeg"
   },
   {
     id: 0,

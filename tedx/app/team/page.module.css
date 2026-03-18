@@ -152,6 +152,11 @@
   left: 0 !important;
 }
 
+/* .memberImage[data-member-id="-1"] {
+  
+  object-fit: center !important;
+} */
+
 .memberImage[data-member-id="9"] {
   object-position: center 15% !important;
 }
