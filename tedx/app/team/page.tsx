@@ -23,7 +23,7 @@ const teamMembers = [
     role: "Co Faculty Advisor",
     department: "Faculty Advisor",
     bio: "Co Faculty Advisor supporting the TEDxJUET team with valuable guidance",
-    image: "/team/faculty2.jpg"
+    image: null
   },
   // Organization
   {
@@ -32,7 +32,7 @@ const teamMembers = [
     role: "Organizer",
     department: "Organization",
     bio: "Leading the TEDxJUET event with passion and dedication",
-    image: "/team/member1.jpg"
+    image: null
   },
   {
     id: 2,
@@ -49,7 +49,7 @@ const teamMembers = [
     role: "Development Head | Co Head Marketing",
     department: "Development | Marketing",
     bio: "Leading web development and supporting marketing strategies",
-    image: "/team/member3.jpg"
+    image: "/team/member34.jpg"
   },
   {
     id: 4,
@@ -66,7 +66,7 @@ const teamMembers = [
     role: "Head Designing",
     department: "Design",
     bio: "Creating stunning visual experiences for TEDxJUET",
-    image: "/team/member5.jpg"
+    image: null
   },
   {
     id: 6,
@@ -82,15 +82,15 @@ const teamMembers = [
     role: "Co Head Designing",
     department: "Design",
     bio: "Bringing visual concepts to life",
-    image: "/team/member7.jpg"
+    image: null
   },
   {
     id: 8,
-    name: "Kush Sharma",
+    name: "Jainam Shah",
     role: "Co Head Designing",
     department: "Design",
     bio: "Ensuring design excellence across all touchpoints",
-    image: "/team/member8.jpg"
+    image: null
   },
   // Logistics Team
   {
@@ -244,7 +244,7 @@ export default function TeamPage() {
           >
             <h1 className={styles.heroTitle}>Core Team</h1>
             <p className={styles.heroSubtitle}>
-              Meet the passionate individuals driving TEDxJUET 2025 forward with dedication and innovation
+              Meet the passionate individuals driving TEDxJUET 2026 forward with dedication and innovation
             </p>
           </motion.div>
         </section>
@@ -293,28 +293,40 @@ export default function TeamPage() {
                 onMouseEnter={() => setHoveredMember(member.id)}
                 onMouseLeave={() => setHoveredMember(null)}
               >
-                <div className={styles.imageContainer}>
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className={styles.memberImage}
-                    data-member-id={member.id}
-                    priority={false}
-                  />
-                  <motion.div
-                    className={styles.overlay}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: hoveredMember === member.id ? 1 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className={styles.overlayContent}>
-                      <div className={styles.roleTag}>
-                        <span className={styles.tag}>{member.role}</span>
+                <div className={`${styles.imageContainer} ${member.id === 3 ? styles.member3Image : ''}`}>
+                  {member.image ? (
+                    <>
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className={styles.memberImage}
+                        data-member-id={member.id}
+                        priority={false}
+                      />
+                      <motion.div
+                        className={styles.overlay}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: hoveredMember === member.id ? 1 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className={styles.overlayContent}>
+                          <div className={styles.roleTag}>
+                            <span className={styles.tag}>{member.role}</span>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </>
+                  ) : (
+                    <div className={`${styles.memberImage} ${styles.placeholder}`}>
+                      <div className={styles.placeholderContent}>
+                        <span className={styles.initials}>
+                          {member.name.split(' ').map(n => n[0]).join('')}
+                        </span>
                       </div>
                     </div>
-                  </motion.div>
+                  )}
                 </div>
 
                 <div className={styles.memberInfo}>

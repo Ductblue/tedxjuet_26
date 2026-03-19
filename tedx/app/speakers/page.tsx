@@ -122,7 +122,7 @@ export default function SpeakersPage() {
           >
             <h1 className={styles.heroTitle}>Our Speakers</h1>
             <p className={styles.heroSubtitle}>
-              Meet the visionaries, innovators, and changemakers who will share their ideas worth spreading at TEDxJUET 2025
+              Meet the visionaries, innovators, and changemakers who will share their ideas worth spreading at TEDxJUET 2026
             </p>
           </motion.div>
         </section>
