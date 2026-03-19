@@ -15,7 +15,7 @@ const teamMembers = [
     role: "Faculty Advisor",
     department: "Faculty Advisor",
     bio: "Faculty Advisor for TEDxJUET, guiding the team with expertise and mentorship",
-    image: "/team/faculty1.jpg"
+    image: "/team/member-1.jpeg"
   },
   {
     id: 0,
@@ -294,14 +294,15 @@ export default function TeamPage() {
                 onMouseLeave={() => setHoveredMember(null)}
               >
                 <div className={styles.imageContainer}>
-                  <div className={styles.imagePlaceholder}>
-                    <div className={styles.placeholderIcon}>
-                      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        <circle cx="12" cy="7" r="4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                  </div>
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className={styles.memberImage}
+                    data-member-id={member.id}
+                    priority={false}
+                  />
                   <motion.div
                     className={styles.overlay}
                     initial={{ opacity: 0 }}
