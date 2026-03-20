@@ -24,7 +24,7 @@ const speakers = [
     title: "Founder, Zo Labs",
     theme: "Innovation & Technology",
     bio: "Founder of Zo Labs, driving conversations around artificial intelligence, its real-world applications, and the future of technology.",
-    image: "/speakers/speaker2.jpg",
+    image: null,
     topics: ["Artificial Intelligence", "Technology", "Startups"]
   },
   {
@@ -61,7 +61,7 @@ const speakers = [
     title: "Director, Jaypee Group of Companies",
     theme: "Social Impact",
     bio: "Director in the Jaypee Group of Companies, sharing perspectives on leadership, human values, and building organisations with purpose.",
-    image: "/speakers/speaker6.jpg",
+    image: "/speakers/speaker6.jpeg",
     topics: ["Leadership", "Human Values", "Corporate Culture"]
   },
   {
@@ -80,7 +80,7 @@ const speakers = [
     title: "Tech Educator, Creative Developer & Entrepreneur",
     theme: "Entrepreneurship",
     bio: "A tech educator, creative developer, and entrepreneur building ventures that sit at the intersection of education, technology, and creative thinking.",
-    image: "/speakers/speaker8.jpg",
+    image: null,
     topics: ["Education", "Technology", "Entrepreneurship"]
   },
   {
@@ -91,6 +91,15 @@ const speakers = [
     bio: "Director of Jet Trade & Logistics, redefining supply chain solutions through entrepreneurship and strategic business innovation.",
     image: "/speakers/speaker9.jpg",
     topics: ["Logistics", "Entrepreneurship", "Business"]
+  },
+  {
+    id: 10,
+    name: "Vedika Dave",
+    title: "To Be Announced",
+    theme: "Innovation & Technology",
+    bio: "An inspiring voice bringing fresh perspectives on innovation and technology to the TEDxJUET platform.",
+    image: "/speakers/speaker10.jpeg",
+    topics: ["Innovation", "Technology", "Future"]
   }
 ]
 
@@ -172,14 +181,22 @@ export default function SpeakersPage() {
                 onMouseLeave={() => setHoveredSpeaker(null)}
               >
                 <div className={styles.imageContainer}>
-                  <div className={styles.imagePlaceholder}>
-                    <div className={styles.placeholderIcon}>
-                      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        <circle cx="12" cy="7" r="4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
+                  {speaker.image ? (
+                    <Image
+                      src={speaker.image}
+                      alt={speaker.name}
+                      fill
+                      className={styles.speakerImage}
+                      priority={index < 3}
+                      data-speaker-id={speaker.id}
+                    />
+                  ) : (
+                    <div className={styles.imagePlaceholder}>
+                      <div className={styles.placeholderContent}>
+                        <span className={styles.placeholderText}>TEDxJUET</span>
+                      </div>
                     </div>
-                  </div>
+                  )}
                   <motion.div
                     className={styles.overlay}
                     initial={{ opacity: 0 }}

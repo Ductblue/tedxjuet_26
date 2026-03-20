@@ -23,7 +23,7 @@ const teamMembers = [
     role: "Co Faculty Advisor",
     department: "Faculty Advisor",
     bio: "Co Faculty Advisor supporting the TEDxJUET team with valuable guidance",
-    image: null
+    image: "/team/member0.jpeg"
   },
   // Organization
   {
@@ -66,7 +66,7 @@ const teamMembers = [
     role: "Head Designing",
     department: "Design",
     bio: "Creating stunning visual experiences for TEDxJUET",
-    image: null
+    image: "/team/member5.jpg"
   },
   {
     id: 6,
@@ -82,7 +82,7 @@ const teamMembers = [
     role: "Co Head Designing",
     department: "Design",
     bio: "Bringing visual concepts to life",
-    image: null
+    image: "/team/member7.jpg"
   },
   {
     id: 8,
@@ -90,7 +90,7 @@ const teamMembers = [
     role: "Co Head Designing",
     department: "Design",
     bio: "Ensuring design excellence across all touchpoints",
-    image: null
+    image: "/team/member8.jpg"
   },
   // Logistics Team
   {
