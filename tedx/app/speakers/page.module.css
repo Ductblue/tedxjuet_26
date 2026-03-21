@@ -157,7 +157,7 @@
 .imageContainer {
   position: relative;
   width: 100%;
-  aspect-ratio: 1.4;
+  aspect-ratio: 1 / 1.1;
   overflow: hidden;
   background: linear-gradient(135deg, rgba(235, 0, 40, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
 }
@@ -171,13 +171,45 @@
   background: linear-gradient(135deg, rgba(235, 0, 40, 0.15) 0%, rgba(0, 0, 0, 0.7) 100%);
 }
 
-.placeholderIcon {
-  color: rgba(255, 255, 255, 0.3);
+.placeholderContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
-.placeholderIcon svg {
-  width: 60px;
-  height: 60px;
+.placeholderText {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.speakerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.speakerCard:hover .speakerImage {
+  transform: scale(1.05);
+}
+
+.speakerImage[data-speaker-id="6"] {
+  object-position: center 25%;
+}
+
+.speakerImage[data-speaker-id="7"] {
+  object-position: center 15%;
+}
+
+.speakerImage[data-speaker-id="9"] {
+  object-position: center 15%;
 }
 
 .overlay {
