@@ -86,11 +86,11 @@ const speakers = [
   {
     id: 10,
     name: "Vedika Dave",
-    title: "To Be Announced",
-    theme: "Innovation & Technology",
-    bio: "An inspiring voice bringing fresh perspectives on innovation and technology to the TEDxJUET platform.",
+    title: "Lawyer & Legal Educator",
+    theme: "Social Impact",
+    bio: "A lawyer specializing in marriage and divorce cases, educating the masses on legal rights and family law through her influential Instagram platform.",
     image: "/speakers/speaker10.jpeg",
-    topics: ["Innovation", "Technology", "Future"]
+    topics: ["Family Law", "Legal Education", "Women Empowerment"]
   }
 ]
 
