@@ -24,7 +24,7 @@ const speakers = [
     title: "Founder, Zo Labs",
     theme: "Innovation & Technology",
     bio: "Founder of Zo Labs, driving conversations around artificial intelligence, its real-world applications, and the future of technology.",
-    image: null,
+    image: "/speakers/speaker2.jpg",
     topics: ["Artificial Intelligence", "Technology", "Startups"]
   },
   {
@@ -74,15 +74,6 @@ const speakers = [
     topics: ["Software Engineering", "Coding Education", "Technology"]
   },
   // Entrepreneurship Theme
-  {
-    id: 8,
-    name: "Harsh Vandana Sharma",
-    title: "Tech Educator, Creative Developer & Entrepreneur",
-    theme: "Entrepreneurship",
-    bio: "A tech educator, creative developer, and entrepreneur building ventures that sit at the intersection of education, technology, and creative thinking.",
-    image: null,
-    topics: ["Education", "Technology", "Entrepreneurship"]
-  },
   {
     id: 9,
     name: "Barkha Agrawal",
