@@ -49,7 +49,7 @@ const teamMembers = [
     role: "Development Head | Co Head Marketing",
     department: "Development | Marketing",
     bio: "Leading web development and supporting marketing strategies",
-    image: "/team/member34.jpg"
+    image: "/team/member21.jpg"
   },
   {
     id: 4,
