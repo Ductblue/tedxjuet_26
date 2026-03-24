@@ -32,7 +32,7 @@ const teamMembers = [
     role: "Organizer",
     department: "Organization",
     bio: "Leading the TEDxJUET event with passion and dedication",
-    image: "/team/member1.jpeg"
+    image: "/team/pria6.jpeg"
   },
   {
     id: 2,
