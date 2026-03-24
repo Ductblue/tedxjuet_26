@@ -21,9 +21,9 @@ const speakers = [
   {
     id: 2,
     name: "Farooq Chisty",
-    title: "Founder, Zo Labs",
+    title: "AI Generalist, Growth at Brevo PushOwl",
     theme: "Innovation & Technology",
-    bio: "Founder of Zo Labs, driving conversations around artificial intelligence, its real-world applications, and the future of technology.",
+    bio: "An AI Generalist leading growth at Brevo PushOwl, focused on practical AI adoption, product-led growth, and building scalable impact through technology.",
     image: "/speakers/speaker2.jpg",
     topics: ["Artificial Intelligence", "Technology", "Startups"]
   },
@@ -58,9 +58,9 @@ const speakers = [
   {
     id: 6,
     name: "Alok Gaud",
-    title: "Director, Jaypee Group of Companies",
-    theme: "Social Impact",
-    bio: "Director in the Jaypee Group of Companies, sharing perspectives on leadership, human values, and building organisations with purpose.",
+    title: "Entrepreneur",
+    theme: "Entrepreneurship",
+    bio: "An entrepreneur sharing perspectives on leadership, human values, and building organisations with purpose.",
     image: "/speakers/speaker6.jpeg",
     topics: ["Leadership", "Human Values", "Corporate Culture"]
   },

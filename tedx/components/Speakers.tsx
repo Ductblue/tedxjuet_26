@@ -14,7 +14,7 @@ const speakers = [
   {
     id: 2,
     name: 'Farooq Chisty',
-    description: 'Entrepreneur',
+    description: 'AI Generalist, driving growth at Brevo PushOwl',
     image: '/speakers/speaker2.jpg'
   },
   {
@@ -56,7 +56,7 @@ const speakers = [
   {
     id: 9,
     name: 'Alok Gaud',
-    description: 'Human Values Advocate',
+    description: 'Entrepreneur',
     image: '/speakers/speaker9.jpg'
   },
   {
