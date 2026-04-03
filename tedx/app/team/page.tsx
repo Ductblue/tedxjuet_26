@@ -66,7 +66,7 @@ const teamMembers = [
     role: "Head Designing",
     department: "Design",
     bio: "Creating stunning visual experiences for TEDxJUET",
-    image: "/team/mem5.png"
+    image: "/team/member5.png"
   },
   {
     id: 6,
