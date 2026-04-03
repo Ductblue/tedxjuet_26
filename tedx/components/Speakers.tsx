@@ -65,6 +65,12 @@ const speakers = [
     description: 'Entrepreneur & Logistics Innovator',
     image: '/speakers/speaker10.jpg'
   },
+  {
+    id: 11,
+    name: 'Faraz Ahmad Qureshi',
+    description: 'Indian Revenue Service (IRS), Additional Commissioner, Indirect Taxes & Customs',
+    image: '/speakers/faraz.jpeg'
+  },
 ]
 
 export default function Speakers() {

@@ -73,6 +73,15 @@ const speakers = [
     image: "/speakers/speaker7.jpg",
     topics: ["Software Engineering", "Coding Education", "Technology"]
   },
+  {
+    id: 8,
+    name: "Faraz Ahmad Qureshi",
+    title: "Indian Revenue Service (IRS), Additional Commissioner, Indirect Taxes & Customs",
+    theme: "Social Impact",
+    bio: "An Indian Revenue Service officer serving as Additional Commissioner in Indirect Taxes & Customs, bringing public service and governance experience to the stage.",
+    image: "/speakers/far2.jpeg",
+    topics: ["Public Service", "Governance", "Taxation"]
+  },
   // Entrepreneurship Theme
   {
     id: 9,
