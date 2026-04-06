@@ -100,6 +100,15 @@ const speakers = [
     bio: "A lawyer specializing in marriage and divorce cases, educating the masses on legal rights and family law through her influential Instagram platform.",
     image: "/speakers/speaker10.jpeg",
     topics: ["Family Law", "Legal Education", "Women Empowerment"]
+  },
+  {
+    id: 11,
+    name: "Mukesh Mangtani",
+    title: "Content Creator & Entrepreneur, Founder of Safarnama",
+    theme: "Entrepreneurship",
+    bio: "Founder of Safarnama, he creates stories beyond destinations and inspires people to step out, build confidence, and discover a deeper sense of self.",
+    image: "/speakers/mukesh.webp",
+    topics: ["Travel Storytelling", "Digital Content Creation", "Entrepreneurship", "43.8K+ Followers", "@safarnama.officials", "@mukesh_mangtan"]
   }
 ]
 

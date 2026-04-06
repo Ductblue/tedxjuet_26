@@ -71,6 +71,12 @@ const speakers = [
     description: 'Indian Revenue Service (IRS), Additional Commissioner, Indirect Taxes & Customs',
     image: '/speakers/faraz.jpeg'
   },
+  {
+    id: 12,
+    name: 'Mukesh Mangtani',
+    description: 'Content Creator, Entrepreneur | Founder, Safarnama',
+    image: '/speakers/mukesh.webp'
+  },
 ]
 
 export default function Speakers() {
