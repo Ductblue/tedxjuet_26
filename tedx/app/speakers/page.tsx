@@ -39,7 +39,7 @@ const speakers = [
   // Social Impact Theme
   {
     id: 4,
-    name: "Sarvgya Soni",
+    name: "Sarvagya Soni",
     title: "Alumni & LGBTQ Voice",
     theme: "Social Impact",
     bio: "An alumni championing LGBTQ rights and inclusive communities, pushing for a world where everyone belongs.",
@@ -48,7 +48,7 @@ const speakers = [
   },
   {
     id: 5,
-    name: "Vidhi",
+    name: "Vidhi Adhikari",
     title: "Sustainable Living Influencer",
     theme: "Social Impact",
     bio: "A sustainable living influencer harnessing the power of digital content to raise awareness about environmental issues and inspire conscious lifestyles.",
@@ -57,7 +57,7 @@ const speakers = [
   },
   {
     id: 6,
-    name: "Alok Gaud",
+    name: "Alok Gaur",
     title: "Entrepreneur",
     theme: "Entrepreneurship",
     bio: "An entrepreneur sharing perspectives on leadership, human values, and building organisations with purpose.",
@@ -75,7 +75,7 @@ const speakers = [
   },
   {
     id: 8,
-    name: "Faraz Ahmad Qureshi",
+    name: "Faraz Ahemad Qureshi",
     title: "Indian Revenue Service (IRS), Additional Commissioner, Indirect Taxes & Customs",
     theme: "Social Impact",
     bio: "An Indian Revenue Service officer serving as Additional Commissioner in Indirect Taxes & Customs, bringing public service and governance experience to the stage.",
@@ -85,7 +85,7 @@ const speakers = [
   // Entrepreneurship Theme
   {
     id: 9,
-    name: "Barkha Agrawal",
+    name: "Barrakha Agarwal",
     title: "Director, Jet Trade & Logistics",
     theme: "Entrepreneurship",
     bio: "Director of Jet Trade & Logistics, redefining supply chain solutions through entrepreneurship and strategic business innovation.",
@@ -103,7 +103,7 @@ const speakers = [
   },
   {
     id: 11,
-    name: "Mukesh Mangtani",
+    name: "Mukesh Mangatni",
     title: "Content Creator & Entrepreneur, Founder of Safarnama",
     theme: "Entrepreneurship",
     bio: "Founder of Safarnama, he creates stories beyond destinations and inspires people to step out, build confidence, and discover a deeper sense of self.",
