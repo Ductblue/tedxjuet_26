@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import TedxInfo from '@/components/TedxInfo'
 import Talks from '@/components/Talks'
-// import Sponsors from '@/components/Sponsors'
+import Sponsors from '@/components/Sponsors'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Talks />
-      {/* <Sponsors /> */}
+      <Sponsors />
       <Footer />
     </main>
   )
