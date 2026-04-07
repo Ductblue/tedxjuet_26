@@ -83,19 +83,41 @@
 
 @media (max-width: 480px) {
   .section {
-    padding: 40px 0;
+    padding: 30px 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
   }
   
   .sponsorsGrid {
-    gap: 30px;
+    gap: 25px;
+  }
+  
+  .sponsorRow {
+    flex-direction: column;
   }
   
   .sponsorRowDouble {
     flex-direction: column;
-    gap: 30px;
+    gap: 25px;
+    align-items: center;
+  }
+  
+  .sponsorItem {
+    width: 100%;
+  }
+  
+  .imageWrapper {
+    min-height: 70px;
   }
   
   .sponsorImage {
-    max-width: 120px;
+    max-width: 90px;
+  }
+  
+  .sponsorText {
+    font-size: 0.75rem;
+    font-weight: 500;
   }
 }
