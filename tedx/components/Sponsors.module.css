@@ -1,5 +1,5 @@
 .section {
-  padding: 80px 0;
+  padding: 60px 0;
   background: #000000;
 }
 
@@ -9,38 +9,93 @@
   padding: 0 2rem;
 }
 
-.header {
+.sponsorsGrid {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2.5rem;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  color: var(--white);
+.sponsorRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.sponsorRowDouble {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 60px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.sponsorItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.imageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.sponsorImage {
+  max-width: 180px;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0.95);
+  transition: filter 0.3s ease;
+}
+
+.sponsorImage:hover {
+  filter: brightness(1.1);
+}
+
+.sponsorText {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e0e0e0;
   margin: 0;
+  text-align: center;
+  letter-spacing: 0.5px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-.seeAll {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: 1.5px;
-  transition: all 0.3s;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+@media (max-width: 768px) {
+  .sponsorRowDouble {
+    gap: 40px;
+  }
+  
+  .sponsorImage {
+    max-width: 140px;
+  }
+  
+  .sponsorText {
+    font-size: 0.85rem;
+  }
 }
 
-.seeAll span {
-  display: inline-block;
-  transition: transform 0.3s;
-}
-
-.seeAll:hover span {
-  transform: translateX(5px);
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 0;
+  }
+  
+  .sponsorsGrid {
+    gap: 30px;
+  }
+  
+  .sponsorRowDouble {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .sponsorImage {
+    max-width: 120px;
+  }
 }
